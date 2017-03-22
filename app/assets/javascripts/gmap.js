@@ -1,14 +1,8 @@
 
 //init map option
 
-// La Cordee Nantes Lat Lng
-var centerMap = new google.maps.LatLng(47.211905, -1.546881);
-var myOptions = {
-  zoom: 16,
-  center: centerMap,
-  scrollwheel: false,
-  mapTypeId: google.maps.MapTypeId.ROADMAP,
-  styles: [  {
+var styleOut =
+[  {
     "elementType": "labels",
     "stylers": [
       {
@@ -211,7 +205,17 @@ var myOptions = {
       }
     ]
   }
-]
+];
+
+var gmapStyle = document.getElementsByName("mystylegmap")[0].value
+// La Cordee Nantes Lat Lng
+var centerMap = new google.maps.LatLng(47.211905, -1.546881);
+var myOptions = {
+  zoom: 16,
+  center: centerMap,
+  scrollwheel: false,
+  mapTypeId: google.maps.MapTypeId.ROADMAP,
+  styles: styleOut
 };
 var map = new google.maps.Map(document.getElementById('map'), myOptions);
 
