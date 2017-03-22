@@ -10,10 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170320174651) do
+ActiveRecord::Schema.define(version: 20170321155259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "journey_pois", force: :cascade do |t|
+    t.integer  "journey_id"
+    t.integer  "poi_id"
+    t.string   "name"
+    t.text     "description"
+    t.string   "photo"
+    t.text     "text"
+    t.string   "video"
+    t.string   "sound"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["journey_id"], name: "index_journey_pois_on_journey_id", using: :btree
+    t.index ["poi_id"], name: "index_journey_pois_on_poi_id", using: :btree
+  end
+
+  create_table "journeys", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "published",   default: false
+    t.index ["user_id"], name: "index_journeys_on_user_id", using: :btree
+  end
+
+  create_table "pois", force: :cascade do |t|
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -28,8 +60,14 @@ ActiveRecord::Schema.define(version: 20170320174651) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "avatar"
+    t.string   "pseudo"
+    t.text     "description"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "journey_pois", "journeys"
+  add_foreign_key "journey_pois", "pois"
+  add_foreign_key "journeys", "users"
 end
