@@ -1,0 +1,26 @@
+#menu_wrapper{
+  height:25px;
+}
+#menu{
+  background:#444;
+  height:280px;
+  margin-top:-270px;
+  color:#ccc;
+  position:relative;
+  z-index: 99;
+
+}
+#menu_btn{
+  cursor:pointer;
+  background:#444;
+  padding:10px 20px;
+  position:absolute;
+  bottom:-30px;
+    left:30px;
+  z-index: 99;
+}
+#map {
+  margin-top: 100px;
+  position: absolute;
+ }
+
