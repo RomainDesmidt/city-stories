@@ -87,6 +87,7 @@
           </ul>
         </div>
       </div>
+<!-- TYPO START HERE -->
       <div id="typography" class="style-guide--entry">
         <h2>Typography</h2>
         <div class="style-guide--subentry">
@@ -97,6 +98,8 @@
             <li><%= @base_font %> for any other <strong>text</strong></li>
           </ul>
         </div>
+
+<!-- HEADERS -->
         <div class="style-guide--subentry">
           <h3 id="headers">Headers</h3>
           <p>We use <%= @header_font %> font for headers. We've defined up to 6 levels but we mainly use only the first 3 ones.</p>
@@ -109,6 +112,8 @@
             <h6 class="style-guide--header">Heading Level 6</h6>
           </div>
         </div>
+
+<!-- TEXT FONT -->
         <div class="style-guide--subentry">
           <h3 id="text">Text</h3>
           <p>We use <%= @base_font %> font for any other text such as paragraphs, lists and so on.</p>
@@ -149,7 +154,19 @@
             <cite> Steven Frischling</cite>
           </blockquote>
         </div>
+
         <div class="style-guide--subentry">
+          <h3 id="poesie">Poesie</h3>
+          <span class="poesie">
+          Le vin sait revêtir le plus sordide bouge
+          D'un luxe miraculeux,
+          Et fait surgir plus d'un portique fabuleux
+          Dans l'or de sa vapeur rouge,
+          Comme un soleil couchant dans un ciel nébuleux.
+          </span>
+        </div>
+<!--  COMMENTAIRE FORM -->
+        <!-- <div class="style-guide--subentry">
           <h3 id="forms">Forms</h3>
           <p>We use <%= @base_font %> font for forms.</p>
           <div class="row">
@@ -167,13 +184,15 @@
               </form>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
+<!-- COMMENTAIRE COLOR -->
       <div id="base" class="style-guide--entry">
         <h2>Base</h2>
         <div id="colors" class="style-guide--subentry">
-          <h3>Colors</h3>
           <div class="row style-guide--colors">
+<h3>MAIN COLORS</h3>
+<div class="col-sm-12">
             <div class="col-sm-6 col-md-4">
               <div class="thumbnail">
                 <div class="color brand-color"></div>
@@ -184,89 +203,91 @@
                 </div>
               </div>
             </div>
+            </div>
+<h3>MAP COLORS</h3>
+<div class="col-sm-12">
             <div class="col-sm-6 col-md-4">
               <div class="thumbnail">
-                <div class="color black"></div>
+                <div class="color map-black"></div>
                 <div class="caption">
                   <ul class="list-unstyled">
-                    <li>$black</li>
-                    <li>$brand-danger</li>
+                    <li>$map-black</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <div class="color map-grey"></div>
+                <div class="caption">
+                  <ul class="list-unstyled">
+                    <li>$map-grey</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+</div>
+<h3>JOURNEY COLORS</h3>
+<div class="col-sm-12">
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <div class="color journey-red"></div>
+                <div class="caption">
+                  <ul class="list-unstyled">
+                    <li>$journey-red</li>
                   </ul>
                 </div>
               </div>
             </div>
             <div class="col-sm-6 col-md-4">
               <div class="thumbnail">
-                <div class="color blue"></div>
+                <div class="color journey-cream"></div>
                 <div class="caption">
                   <ul class="list-unstyled">
-                    <li>$blue</li>
-                    <li>$brand-primary</li>
+                    <li>$journey-cream</li>
                   </ul>
                 </div>
               </div>
             </div>
             <div class="col-sm-6 col-md-4">
               <div class="thumbnail">
-                <div class="color yellow"></div>
+                <div class="color journey-orange"></div>
                 <div class="caption">
                   <ul class="list-unstyled">
-                    <li>$yellow</li>
-                    <li>$brand-info</li>
+                    <li>$journey-orange</li>
                   </ul>
                 </div>
               </div>
             </div>
             <div class="col-sm-6 col-md-4">
               <div class="thumbnail">
-                <div class="color orange"></div>
+                <div class="color journey-green"></div>
                 <div class="caption">
                   <ul class="list-unstyled">
-                    <li>$orange</li>
-                    <li>$brand-warning</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-              <div class="thumbnail">
-                <div class="color green"></div>
-                <div class="caption">
-                  <ul class="list-unstyled">
-                    <li>$green</li>
-                    <li>$brand-success</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-              <div class="thumbnail">
-                <div class="color gray"></div>
-                <div class="caption">
-                  <ul class="list-unstyled">
-                    <li>$gray</li>
-                    <li>$gray-base</li>
+                    <li>$journey-green</li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
         </div>
+</div>
+<!-- BOUTONS COMMENTAIRES -->
         <div id="buttons" class="style-guide--subentry">
           <h3>Buttons</h3>
           <div class="style-guide--buttons">
             <ul class="list-inline">
-              <li><button type="button" class="btn btn-default">Default</button></li>
-              <li><button type="button" class="btn btn-primary">Primary</button></li>
-              <li><button type="button" class="btn btn-success">Success</button></li>
-              <li><button type="button" class="btn btn-info">Info</button></li>
-              <li><button type="button" class="btn btn-warning">Warning</button></li>
-              <li><button type="button" class="btn btn-danger">Danger</button></li>
-              <li><button type="button" class="btn btn-link">Link</button></li>
+              <li><i class="fa fa-plus-circle btn-fa" style=""aria-hidden="true"></i></li>
+              <li><i class="fa fa-check-circle btn-fa" aria-hidden="true"></i></li>
             </ul>
           </div>
         </div>
-        <div id="labels" class="style-guide--subentry">
+
+
+
+<!-- LABELS COMMENTAIRES -->
+        <!-- <div id="labels" class="style-guide--subentry">
           <h3>Labels</h3>
           <div class="style-guide--labels">
             <ul class="list-inline">
@@ -278,7 +299,9 @@
               <li><span class="label label-danger">Danger</span></li>
             </ul>
           </div>
-        </div>
+        </div> -->
+
+
         <div id="logo" class="style-guide--subentry">
           <h3>Logo</h3>
           <div class="style-guide--logo">
@@ -314,30 +337,32 @@
           <div class="style-guide--avatars">
             <ul class="list-inline">
               <li><%= image_tag "logo.png",  alt: "user", class: "avatar" %></li>
-              <li><%= image_tag "logo.png",  alt: "user", class: "avatar-large" %></li>
-              <li><%= image_tag "logo.png",  alt: "user", class: "avatar-bordered" %></li>
-              <li><%= image_tag "logo.png",  alt: "user", class: "avatar-square" %></li>
+              <li><%= image_tag "logo.png",  alt: "user", class: "avatar-medium" %></li>
+              <li><%= image_tag "logo.png",  alt: "user", class: "avatar-small" %></li>
             </ul>
           </div>
         </div>
+<!--
         <div id="component_name" class="style-guide--subentry">
           <h3>New component</h3>
           <div class="style-guide--badges">
             <strong>>> Your new component HERE <<</strong>
           </div>
-        </div>
+        </div> -->
+
+<!-- ICON COMMENTAIRE -->
         <div id="icon_name" class="style-guide--subentry">
           <h3>Icons</h3>
-          <i class="fa fa-plus-circle" aria-hidden="true"></i>
-          <i class="fa fa-check-circle" aria-hidden="true"></i>
-          <i class="fa fa-angle-up" aria-hidden="true"></i>
-          <i class="fa fa-angle-down" aria-hidden="true"></i>
-          <i class="fa fa-font" aria-hidden="true"></i>
-          <i class="fa fa-exclamation" aria-hidden="true"></i>
-          <i class="fa fa-youtube-play" aria-hidden="true"></i>
-          <i class="fa fa-microphone" aria-hidden="true"></i>
-          <i class="fa fa-camera" aria-hidden="true"></i>
-
+          <i class="fa fa-angle-up btn-fa" aria-hidden="true"></i>
+          <i class="fa fa-angle-down btn-fa" aria-hidden="true"></i>
+          <i class="fa fa-angle-left btn-fa" aria-hidden="true"></i>
+          <i class="fa fa-angle-right btn-fa" aria-hidden="true"></i>
+          <i class="fa fa-font  btn-fa" aria-hidden="true"></i>
+          <i class="fa fa-exclamation  btn-fa" aria-hidden="true"></i>
+          <i class="fa fa-youtube-play btn-fa" aria-hidden="true"></i>
+          <i class="fa fa-microphone btn-fa" aria-hidden="true"></i>
+          <i class="fa fa-camera btn-fa" aria-hidden="true"></i>
+          <i class="fa fa-map-marker btn-fa" aria-hidden="true"></i>
 
 
         </div>
