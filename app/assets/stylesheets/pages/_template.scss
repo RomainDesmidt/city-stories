@@ -1,0 +1,15 @@
+.banner {
+  color: white;
+  display: flex;
+  text-align: left;
+  align-items: center;
+  background-color: $brand-color;
+  line-height: 5px;
+}
+
+.banner > div {
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+

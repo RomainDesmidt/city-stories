@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   end
   get 'styleguide', to: 'pages#styleguide'
   get 'testgmap', to: 'pages#test'
+  get 'template', to: 'pages#template'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
