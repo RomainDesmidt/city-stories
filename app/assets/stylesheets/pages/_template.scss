@@ -24,7 +24,8 @@
 }
 
 .body-contenu {
-
+  height: 50vh;
+  overflow: scroll;
   padding: 20px 20px 20px 20px;
   text-align: left;
   border-bottom: 5px solid $brand-color;
@@ -37,15 +38,19 @@
 }
 
 .map {
-  // background-color: $map-black;
-  height: 26vh;
+  flex: 1 1 auto;
+
+}
+
+.img-responsive-custom {
+  width: 100%;
 }
 
 .footer {
   color: $brand-color;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   background-color: white;
   padding-left: 15px;
   padding-top: 15px;
@@ -55,7 +60,7 @@
 
 .footer-title {
   margin: 0;
-  padding: 0 0 0 10px;
+  padding: 0 0 0 0px;
   h3 {
   margin: 0;
   padding: 0;
@@ -66,6 +71,15 @@
   }
 }
 
+.footer-user-change {
+  display: flex;
+  align-items: center;
+}
 
+.container-height {
+  display: flex;
+  height: 100vh;
+
+}
 
 
