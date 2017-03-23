@@ -1,0 +1,71 @@
+.banner {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: $brand-color;
+  line-height: 10px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.banner-title {
+  margin: 0;
+  padding: 0 0 0 10px;
+  h3 {
+  margin: 0;
+  padding: 0;
+  }
+  p {
+  margin: 0;
+  padding: 0;
+  }
+}
+
+.body-contenu {
+
+  padding: 20px 20px 20px 20px;
+  text-align: left;
+  border-bottom: 5px solid $brand-color;
+
+
+  .padding-hr  {
+    border:1px solid $brand-color
+  }
+
+}
+
+.map {
+  // background-color: $map-black;
+  height: 26vh;
+}
+
+.footer {
+  color: $brand-color;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: white;
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 15px;
+}
+
+.footer-title {
+  margin: 0;
+  padding: 0 0 0 10px;
+  h3 {
+  margin: 0;
+  padding: 0;
+  }
+  p {
+  margin: 0;
+  padding: 0;
+  }
+}
+
+
+
+
