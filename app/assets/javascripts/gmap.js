@@ -207,7 +207,6 @@ var styleOut =
   }
 ];
 
-var gmapStyle = document.getElementsByName("mystylegmap")[0].value
 // La Cordee Nantes Lat Lng
 var centerMap = new google.maps.LatLng(47.211905, -1.546881);
 var myOptions = {
