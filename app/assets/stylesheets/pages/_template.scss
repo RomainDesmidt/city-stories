@@ -44,11 +44,14 @@
 }
 
 .map {
+
   flex: 1 1 auto;
+
 
 }
 
 .img-responsive-custom {
+
   width: 100%;
 }
 
@@ -81,6 +84,12 @@
   display: flex;
   align-items: center;
 }
+
+
+.container-height {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
 
 
 

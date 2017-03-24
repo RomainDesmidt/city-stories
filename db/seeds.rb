@@ -58,15 +58,18 @@ journey_1 = Journey.create!(
   user: mathilde,
   journey_pois: [
     JourneyPOI.new(
+      name: "Chateau des ducs de bretagne",
       poi: chateau_des_ducs,
       video: "https://www.youtube.com/watch?v=6S9i9fV0i8E"
     ),
     JourneyPOI.new(
+      name: "Ile de versailles",
       poi: ile_de_versaille,
       # remote_photo_url: "http://static.panoramio.com/photos/large/29223108.jpg"
       photo: File.new(Rails.root.join("db/fixtures/images/29223108.jpg"))
     ),
     JourneyPOI.new(
+      name: "tram 50 otages",
       poi: tram_50_otages,
       text: <<~EOF
         L'arrêt de bus
@@ -88,11 +91,13 @@ journey_1 = Journey.create!(
       EOF
     ),
     JourneyPOI.new(
+      name: "Chien Stupide",
       poi: chien_stupide,
       # remote_photo_url: "http://scontent.cdninstagram.com/t51.2885-15/s480x480/e15/11242537_410899635758927_750236687_n.jpg?ig_cache_key=Mzc3NDQ4MTQ2Njc2NjI2MzIy.2"
       photo: File.new(Rails.root.join("db/fixtures/images/11242537_410899635758927_750236687_n.jpg"))
     ),
     JourneyPOI.new(
+      name: "Pont saint Mihiel",
       poi: pont_saint_mihiel,
       text: <<~EOF
         Le pont: Vague est le pont qui passe à demain de naguère
@@ -125,24 +130,29 @@ journey_2 = Journey.create!(
   user: grégoire,
   journey_pois: [
     JourneyPOI.new(
+      name: "Passage Pommeray",
       poi: passage_pommeray,
       sound: "https://soundcloud.com/made-hater/bruitage-ville-foule"
     ),
     JourneyPOI.new(
+      name: "gare sncf",
       poi: gare_sncf,
       # remote_photo_url: "http://cache.20minutes.fr/img/photos/afp/2008-11/2008-11-16/article_photo_1226826800024-5-0.jpg"
       photo: File.new(Rails.root.join("db/fixtures/images/0.jpg"))
     ),
     JourneyPOI.new(
+      name: "petit pont",
       poi: pont_saint_mihiel,
       # remote_photo_url: "https://c1.staticflickr.com/1/712/20785471772_3932b28bd2_b.jpg"
       photo: File.new(Rails.root.join("db/fixtures/images/20785471772_3932b28bd2_b.jpg"))
     ),
     JourneyPOI.new(
+      name: "30 moult",
       poi: trentmoult,
       video: "https://www.youtube.com/watch?v=ycoHuRyImds"
     ),
     JourneyPOI.new(
+      name: "versailles",
       poi: ile_de_versaille,
       # remote_photo_url: "http://photos.tourisme-en-france.com/pois/54485_1_nantes-le-jardin-japonais-sur-l-ile-de-versailles.jpg"
       photo: File.new(Rails.root.join("db/fixtures/images/versailles.jpg"))
@@ -155,24 +165,29 @@ journey_3 = Journey.create!(
   user: nicolas,
   journey_pois: [
     JourneyPOI.new(
+      name: "la cathedrale",
       poi: cathedrale,
       sound: "https://soundcloud.com/carolinel3fle/cloche-deglise"
     ),
     JourneyPOI.new(
+      name: "quai des en TA",
       poi: quai_des_antilles,
       # remote_photo_url: "http://img.over-blog-kiwi.com/0/93/43/01/20160726/ob_60456d_p1130331.jpg"
       photo: File.new(Rails.root.join("db/fixtures/images/ob_60456d_p1130331.jpg"))
     ),
     JourneyPOI.new(
+      name: "parc",
       poi: parc_de_proce,
       text: "Le parc de Proce est situé dans l'ouest de la ville, sur les quartiers Hauts-Pavés - Saint-Félix et Dervallières - Zola (la Chézine qui travers le parc au sud-ouest marque la limites entre les deux). Avec 11,3 ha, il s'agit de l'un des principaux espaces verts de Nantes, après les parcs du Petit_Port (49,4 ha), du Grand-Blottereau (19,3 ha), de la Chantrerie (17,7 ha), de la Beaujoire (13,3 ha) et de la Gaudinière (12,5 ha)."
     ),
     JourneyPOI.new(
+      name: "cimetiere",
       poi: cimetiere_misericorde,
       # remote_photo_url: "http://images.marredelapluie.fr/membres/0/2/photos/167/1675/167528_cimetiere-misericorde_600.jpg"
       photo: File.new(Rails.root.join("db/fixtures/images/misericorde_600.jpg"))
     ),
     JourneyPOI.new(
+      name: "l'ile",
       poi: ile_de_versaille,
       video: "https://www.youtube.com/watch?v=f668txV74Pg"
     )
@@ -184,26 +199,31 @@ journey_4 = Journey.create!(
   user: camille,
   journey_pois: [
     JourneyPOI.new(
+      name: "leonard est un genie",
       poi: rue_saint_leonard,
       # remote_photo_url: "https://imgs.nestimg.com/appartement_3_pieces_69_m_1520044478785553450.jpg"
       photo: File.new(Rails.root.join("db/fixtures/images/appartement_3_pieces_69_m_1520044478785553450.jpg"))
     ),
     JourneyPOI.new(
+      name: "lerdre ",
       poi: bord_de_erdre,
       # remote_photo_url: "https://media-cdn.tripadvisor.com/media/photo-s/0c/c6/c6/a8/belle-demeure-au-bord.jpg"
       photo: File.new(Rails.root.join("db/fixtures/images/bord.jpg"))
     ),
     JourneyPOI.new(
+      name: "petit port quand tu...",
       poi: petit_port,
       # remote_photo_url: "https://www.francebleu.fr/s3/cruiser-production/2016/04/be77a965-f883-4b53-971f-edf287ae0a72/870x489_img_1907.jpg"
       photo: File.new(Rails.root.join("db/fixtures/images/870x489_img_1907.jpg"))
     ),
     JourneyPOI.new(
+      name: "le fameux rond point",
       poi: rond_point_de_paris,
       # remote_photo_url: "http://img.20mn.fr/IcMIOlrmTtybOfCvdl8idw/2048x1536-fit_pataugeoire-parc-proce-nantes.jpg"
       photo: File.new(Rails.root.join("db/fixtures/images/nantes.jpg"))
     ),
     JourneyPOI.new(
+      name: "le chien",
       poi: chien_stupide,
       text: <<~EOF
         Le bar: Il y aura encor de petits bars canaille
@@ -222,6 +242,7 @@ journey_4 = Journey.create!(
       EOF
     ),
     JourneyPOI.new(
+      name: "l'ile de versailles",
       poi: ile_de_versaille,
       video: "https://www.youtube.com/watch?v=JYJhHfryywM"
     )
