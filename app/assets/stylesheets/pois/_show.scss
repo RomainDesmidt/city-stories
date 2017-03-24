@@ -53,3 +53,28 @@
   padding-left: 20px;
   padding-right: 10px;
 }
+
+.footer-show {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $brand-color;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+
+.footer-title-show {
+  color: grey;
+  margin: 0;
+  padding: 0 0 0 0px;
+  h3 {
+  margin: 0;
+  padding: 0;
+  }
+  p {
+  margin: 0;
+  padding: 0;
+  }
+}
