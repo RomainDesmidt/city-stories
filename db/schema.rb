@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20170321155259) do
     t.text     "description"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.boolean  "published",   default: false
+    t.boolean  "published",   default: true
     t.index ["user_id"], name: "index_journeys_on_user_id", using: :btree
   end
 
