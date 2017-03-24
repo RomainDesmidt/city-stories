@@ -1,8 +1,8 @@
 class PoisController < ApplicationController
   def show
-    @journey = Journey.find(params[:journey_id])
-    @poi = @journey.journey_pois.find(params[:id])
-    @diff_journey = @poi.poi.journeys
+    # @journey = Journey.find(params[:journey_id])
+    # @poi = @journey.journey_pois.find(params[:id])
+    # @diff_journey = @poi.poi.journeys
 
     # poi_id_toseek = @poi.poi_id
 
