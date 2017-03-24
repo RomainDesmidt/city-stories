@@ -1,0 +1,20 @@
+.row-no-padding > [class*="col-"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.full-map {
+
+  flex: 1 1 auto;
+  height: 100vh;
+  display:block;
+
+}
+
+.add-button {
+  position: absolute;
+  font-size: 400%;
+  bottom: 5%;
+  left: 50%;
+  color: white;
+}

@@ -1,0 +1,70 @@
+.container-height {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+}
+.map {
+  flex: 1 1 auto;
+}
+
+.journeys-footer {
+  color: white;
+  text-align: center;
+  background-color: $brand-color;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.journeys-footer-title {
+  margin: 0;
+  padding: 0 0 0 0px;
+  h3 {
+  margin: 0;
+  padding: 0;
+  }
+  p {
+  margin: 0;
+  padding: 0;
+  }
+}
+
+.white-container {
+  border-top: 5px solid $brand-color;
+  display: flex;
+  height: 100%;
+}
+
+.flex-items {
+  flex: 0 0 50%;
+}
+
+.photo-poi {
+  background-size: cover;
+  height: 100%;
+}
+
+.sum-poi-journeys {
+  height: 20vh;
+  background-color: white;
+}
+
+.btn-fa {
+  font-size: 100%;
+}
+
+.flex-items-right {
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.poi-content {
+  display: flex;
+  flex: space-around;
+  align-items: center;
+}
+
+.padding-p {
+  padding-top: 5px;
+}
