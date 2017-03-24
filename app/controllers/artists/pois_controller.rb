@@ -1,5 +1,6 @@
 class Artists::PoisController < ApplicationController
   def show
+
   end
 
   def index
