@@ -31,9 +31,9 @@
 
           <div class="banner-title">
 
-            <h3>BALADE SOLITAIRE</h3>
+            <h3> <%= @journey.name %> </h3>
 
-            <p>par thomas loldu44</p>
+            <p>par <%= current_user.pseudo %> </p>
 
           </div>
 
@@ -48,7 +48,7 @@
           </div>
 
           <div class="footer-title">
-          <h4>Chateau des ducs de bretagne</h4>
+          <h4><%= @poi.name %></h4>
           </div>
 
           <div class="footer-user-change">
@@ -65,7 +65,7 @@
 
           <div class="body-description">
 
-            <p>Tout a commencé par une envie de se balader dans Nantes sans but précis. Juste une découverte par l'errance.</p>
+            <p><%= @poi.description %></p>
 
           </div>
 
@@ -73,7 +73,14 @@
 
           <div class="body-media">
 
-            <%= image_tag "media_template.png", class: "img-responsive-custom" %>
+            <div class="img-responsive-custom">
+            <%= cl_image_tag @poi.photo %>
+            <%= @poi.text %>
+            <%= @poi.video %>
+            <%= @poi.sound %>
+            </div>
+
+
 
           </div>
 
