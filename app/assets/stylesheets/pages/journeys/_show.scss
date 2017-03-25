@@ -4,10 +4,10 @@
 }
 
 .full-map {
-
+  display:block;
   flex: 1 1 auto;
   height: 100vh;
-  display:block;
+
 
 }
 
@@ -18,3 +18,5 @@
   left: 50%;
   color: white;
 }
+
+
