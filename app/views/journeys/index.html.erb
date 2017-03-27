@@ -6,9 +6,35 @@
         </div>
 
 <!-- COMMENTER ICI -->
+        <div class="journeys-footer ">
+          <div class="journeys-footer-title">
+            <h4 class="x hidden-content" id="poi-title1">  </h4>
+            <h4 class="y hidden-content" id="poi-title2">  </h4>
+            <h4 class="z hidden-content" id="poi-title3">  </h4>
+            <h4 class="w hidden-content" id="poi-title4">  </h4>
+          </div>
+        </div>
+<div class="hidden-content" id="tabs-container">
+    <ul class="tabs-menu">
+        <li class="current"><a href="#tab-1" class="x" id="tab-1">Tab 1</a></li>
+        <li><a href="#tab-2" class="y" id="tab-2">Tab 2</a></li>
+        <li><a href="#tab-3" class="z" id="tab-3">Tab 3</a></li>
+        <li><a href="#tab-4" class="w" id="tab-4">Tab 4</a></li>
+    </ul>
+    <div class="tab">
+        <div id="tab-1" class="tab-content">
+        </div>
+        <div id="tab-2" class="tab-content">
+        </div>
+        <div id="tab-3" class="tab-content">
+        </div>
+        <div id="tab-4" class="tab-content">
+        </div>
+    </div>
+</div>
 <!-- <= link_to('Chateau des ducs de Bretagne', destroy_user_session_path, :method => :delete, class: "link-to-logout") %> -->
 <!-- style="text-decoration: none; color: white;" -->
-        <div class="journeys-footer ">
+       <!--  <div class="journeys-footer ">
           <div class="journeys-footer-title">
             <h4 id="poi-title">  </h4>
 
@@ -57,13 +83,13 @@
                   <% end %>
                 </ul>
               </div>
-            <% end %>
+            <% end %> -->
 <!-- DE COMMENTER ICI -->
         </div>
 
 <!-- BEGIN script tab behavior -->
-<% content_for(:js) do %>
-  <%= javascript_tag do %>
+<!-- < content_for(:js) do %>
+  <= javascript_tag do %>
     // js code here
     $('.journey-details').hide();
     $('.portrait').removeClass('portrait-active');
@@ -79,8 +105,8 @@
       $(this).addClass('portrait-active');
     });
 
-  <% end %>
-<% end %>
+  < end %>
+< end %> -->
 <!-- END script tab behavior -->
 
 
@@ -473,6 +499,7 @@ all_markers[i].addListener('click', function() {
       // for(var j = 0; j < data.length; j++) {
       //   document.getElementById('journey-title').innerHTML = data[0]["journeyname"];
       //   document.getElementById('poi-title').innerHTML = data[0]["poiname"];
+      $('#tabs-container').removeClass('hidden-content');
       var length = data.length;
       if (data.length > 4) {
         length = 4;
@@ -491,7 +518,7 @@ all_markers[i].addListener('click', function() {
         var jtitle = "tab-"+count;
         var ptitle = "poi-title"+count;
         document.getElementById(jtitle).innerHTML = data[j]["journeyname"];
-        document.getElementById(ptitle).innerHTML = data[j]["email"];
+        document.getElementById(ptitle).innerHTML = data[j]["poiname"];
       //  document.getElementById('poi-title'+j).innerHTML = data[0]["poiname"];
 
 
