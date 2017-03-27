@@ -27,6 +27,7 @@
             <% end %>
           </div>
 
+
             <% poi.journeys.each do |journey| %>
               <div class="journey-details" id="<%= "journey-#{journey.id}" %>">
                 <h3 class="title"><%= journey.name%></h3>
@@ -117,6 +118,8 @@
   </div>
 </div>
 <script type="text/javascript">
+
+
 var styleOut =
 [  {
     "elementType": "labels",
@@ -466,14 +469,35 @@ all_markers[i].addListener('click', function() {
  $.ajax({
     url: "http://localhost:3000/value/?pos="+latit,
     success: function(data) {
+
       // for(var j = 0; j < data.length; j++) {
       //   document.getElementById('journey-title').innerHTML = data[0]["journeyname"];
       //   document.getElementById('poi-title').innerHTML = data[0]["poiname"];
+      var length = data.length;
+      if (data.length > 4) {
+        length = 4;
+      };
+      for(var j = 0; j < 4; j++) {
+        var count = j+1;
+        var jtitle = "tab-"+count;
+        var ptitle = "poi-title"+count;
+        document.getElementById(jtitle).innerHTML = "";
+        document.getElementById(ptitle).innerHTML = "";
+      //  document.getElementById('poi-title'+j).innerHTML = data[0]["poiname"];
+
+      }
+      for(var j = 0; j < length; j++) {
+        var count = j+1;
+        var jtitle = "tab-"+count;
+        var ptitle = "poi-title"+count;
+        document.getElementById(jtitle).innerHTML = data[j]["journeyname"];
+        document.getElementById(ptitle).innerHTML = data[j]["email"];
+      //  document.getElementById('poi-title'+j).innerHTML = data[0]["poiname"];
+
 
       // }
       console.log(data);
     },
-
     error: function(jqXHR) {
 
     }
@@ -506,5 +530,4 @@ all_markers[i].addListener('click', function() {
 // all_markers.addListener('click', function() {
 
 // });
-
 </script>
