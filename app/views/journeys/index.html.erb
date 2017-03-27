@@ -6,16 +6,17 @@
         </div>
 
 <!-- COMMENTER ICI -->
-
+<!-- <= link_to('Chateau des ducs de Bretagne', destroy_user_session_path, :method => :delete, class: "link-to-logout") %> -->
+<!-- style="text-decoration: none; color: white;" -->
         <div class="journeys-footer ">
           <div class="journeys-footer-title">
-            <h4 style="text-decoration: none; color: white;"> <%= link_to('Chateau des ducs de Bretagne', destroy_user_session_path, :method => :delete, class: "link-to-logout") %> </h4>
+            <h4 id="poi-title">  </h4>
 
           </div>
         </div>
         <div class="white-container-index">
           <div class="affichage-portraits">
-            <div class="portrait">
+            <div class="portrait" >
               <%= image_tag "logo.png",  alt: "user", class: "avatar-medium" %>
             </div>
             <div class="portrait">
@@ -29,7 +30,7 @@
             </div>
           </div>
           <div class="title-icons">
-            <h3 class="title"> Night Experience </h3>
+            <h3 class="title" id="journey-title"> Night Experience </h3>
               <ul class="icons list-unstyled list-inline">
                 <li><i class="fa fa-font  btn-fa" aria-hidden="true"></i></li>
                 <li><i class="fa fa-exclamation  btn-fa" aria-hidden="true"></i></li>
@@ -427,10 +428,14 @@ all_markers[i].addListener('click', function() {
  $.ajax({
     url: "http://localhost:3000/value/?pos="+latit,
     success: function(data) {
-      // parser = new DOMParser();
-      // xmlDoc = parser.parseFromString(data,"text/xml");
-     console.log(data);
+      for(var j = 0; j < data.length; j++) {
+        document.getElementById('journey-title').innerHTML = data[0]["journeyname"];
+        document.getElementById('poi-title').innerHTML = data[0]["poiname"];
+
+      }
+    //console.log(data);
     },
+
     error: function(jqXHR) {
 
     }

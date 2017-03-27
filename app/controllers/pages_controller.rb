@@ -38,7 +38,6 @@ class PagesController < ApplicationController
         @result << @user
       end
     end
-    # @a = {lato: params[:pos]}
     render :json => @result
   end
 end
