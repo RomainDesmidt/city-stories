@@ -1,6 +1,8 @@
-body {
+.wrapper-map {
   background-image: image-url('background-sessions.png'); // link to /assets/images/texture.png
   background-size: cover;
+  height: 100vh;
+
 }
 
 .row-session > [class*="col-"] {
@@ -20,7 +22,7 @@ body {
   color: white;
 }
 
-.test {
+.padding-raffinage {
   padding: 0px 25px 25px 25px;
 
 }
