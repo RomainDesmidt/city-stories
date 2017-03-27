@@ -382,9 +382,9 @@ function getCoordinatesonClick() {
 
 
 <% color = ['#E59500', '#F44336', '#E5DADA', '#52DEE5'] %>
-//< @coordinates_hash.each_with_index do |coordinate,i| %>
-createParcours(<%= @coordinates_hash[0] %>, '<%= color[1] %>');
-//< end %>
+<% @coordinates_hash.each_with_index do |coordinate,i| %>
+createParcours(<%= @coordinates_hash[i] %>, '<%= color[i] %>');
+<% end %>
 
 
 // var maLatLng1 = new google.maps.LatLng(47.21175595282318,  -1.5745854377746582);
@@ -429,7 +429,7 @@ all_markers[i].addListener('click', function() {
     success: function(data) {
       // parser = new DOMParser();
       // xmlDoc = parser.parseFromString(data,"text/xml");
-     console.log(data["lato"]);
+     console.log(data);
     },
     error: function(jqXHR) {
 
