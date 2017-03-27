@@ -40,6 +40,29 @@
               </ul>
           </div>
 <!-- DE COMMENTER ICI -->
+<div id="tabs-container">
+    <ul class="tabs-menu">
+        <li class="current"><a href="#tab-1" id="poi-title1"></a></li>
+        <li><a href="#tab-2" id="poi-title2"></a></li>
+        <li><a href="#tab-3" id="poi-title3"></a></li>
+        <li><a href="#tab-4" id="poi-title4"></a></li>
+    </ul>
+    <div class="tab">
+        <div id="tab-1" class="tab-content">
+
+        </div>
+        <div id="tab-2" class="tab-content">
+
+        </div>
+        <div id="tab-3" class="tab-content">
+
+        </div>
+        <div id="tab-4" class="tab-content">
+
+        </div>
+    </div>
+</div>
+
 
         </div>
 
@@ -79,6 +102,8 @@
   </div>
 </div>
 <script type="text/javascript">
+
+
 var styleOut =
 [  {
     "elementType": "labels",
@@ -428,14 +453,30 @@ all_markers[i].addListener('click', function() {
  $.ajax({
     url: "http://localhost:3000/value/?pos="+latit,
     success: function(data) {
-      for(var j = 0; j < data.length; j++) {
-        document.getElementById('journey-title').innerHTML = data[0]["journeyname"];
-        document.getElementById('poi-title').innerHTML = data[0]["poiname"];
+      var length = data.length;
+      if (data.length > 4) {
+        length = 4;
+      };
+      for(var j = 0; j < 4; j++) {
+        var count = j+1;
+        var jtitle = "tab-"+count;
+        var ptitle = "poi-title"+count;
+        document.getElementById(jtitle).innerHTML = "";
+        document.getElementById(ptitle).innerHTML = "";
+      //  document.getElementById('poi-title'+j).innerHTML = data[0]["poiname"];
+
+      }
+      for(var j = 0; j < length; j++) {
+        var count = j+1;
+        var jtitle = "tab-"+count;
+        var ptitle = "poi-title"+count;
+        document.getElementById(jtitle).innerHTML = data[j]["journeyname"];
+        document.getElementById(ptitle).innerHTML = data[j]["email"];
+      //  document.getElementById('poi-title'+j).innerHTML = data[0]["poiname"];
 
       }
     //console.log(data);
     },
-
     error: function(jqXHR) {
 
     }
@@ -468,5 +509,4 @@ all_markers[i].addListener('click', function() {
 // all_markers.addListener('click', function() {
 
 // });
-
 </script>
