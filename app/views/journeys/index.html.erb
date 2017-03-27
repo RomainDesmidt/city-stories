@@ -15,31 +15,45 @@
         </div>
         <div class="white-container-index">
           <div class="affichage-portraits">
-            <div class="portrait">
-              <%= image_tag "logo.png",  alt: "user", class: "avatar-medium" %>
-            </div>
-            <div class="portrait">
-              <%= image_tag "logo.png",  alt: "user", class: "avatar-medium" %>
-            </div>
-            <div class="portrait">
-              <%= image_tag "logo.png",  alt: "user", class: "avatar-medium" %>
-            </div>
-            <div class="portrait">
-              <%= image_tag "logo.png",  alt: "user", class: "avatar-medium" %>
-            </div>
-          </div>
-          <div class="title-icons">
-            <h3 class="title"> Night Experience </h3>
-              <ul class="icons list-unstyled list-inline">
-                <li><i class="fa fa-font  btn-fa" aria-hidden="true"></i></li>
-                <li><i class="fa fa-exclamation  btn-fa" aria-hidden="true"></i></li>
-                <li><i class="fa fa-youtube-play btn-fa" aria-hidden="true"></i></li>
-                <li><i class="fa fa-microphone btn-fa" aria-hidden="true"></i></li>
-                <li><i class="fa fa-camera btn-fa" aria-hidden="true"></i></li>
-              </ul>
+
+            <% poi = POI.first %>
+
+
+            <%= poi.journeys.each do |journey| %>
+              <div class="user-avatar" data-id="<%= "journey-#{journey.id}"%>"> <%= image_tag "logo.png",  alt: "user", class: "avatar-medium" %><div>
+              <div class="title-icons">
+                <div id="<%= "journey-#{journey.id}" %>">
+                  <h3 class="title"><%= journey.name%></h3>
+                </div>
+                  <ul class="icons list-unstyled list-inline">
+                    <% if journey.journey_pois.find_by_poi_id(poi.id).text %>
+                      <li>
+                        <i class="fa fa-font btn-fa" aria-hidden="true"></i>
+                      </li>
+                    <% end %>
+
+                    <% if journey.journey_pois.find_by_poi_id(poi.id).video %>
+                      <li>
+                        <i class="fa fa-youtube-play btn-fa" aria-hidden="true"></i>
+                      </li>
+                    <% end %>
+
+                    <% if journey.journey_pois.find_by_poi_id(poi.id).sound %>
+                      <li>
+                        <i class="fa fa-microphone btn-fa" aria-hidden="true"></i>
+                      </li>
+                    <% end %>
+
+                    <% if journey.journey_pois.find_by_poi_id(poi.id).photo %>
+                      <li>
+                        <i class="fa fa-camera btn-fa" aria-hidden="true"></i>
+                      </li>
+                    <% end %>
+                  </ul>
+              </div>
+            <% end %>
           </div>
 <!-- DE COMMENTER ICI -->
-
         </div>
 
 
