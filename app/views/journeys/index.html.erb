@@ -6,15 +6,17 @@
         </div>
 
 <!-- COMMENTER ICI -->
-
+<!-- <= link_to('Chateau des ducs de Bretagne', destroy_user_session_path, :method => :delete, class: "link-to-logout") %> -->
+<!-- style="text-decoration: none; color: white;" -->
         <div class="journeys-footer ">
           <div class="journeys-footer-title">
-            <h4 style="text-decoration: none; color: white;"> <%= link_to('Chateau des ducs de Bretagne', destroy_user_session_path, :method => :delete, class: "link-to-logout") %></h4>
+            <h4 id="poi-title">  </h4>
 
           </div>
         </div>
         <div class="white-container-index">
           <div class="affichage-portraits">
+
 
             <% poi = POI.first %>
 
@@ -324,7 +326,8 @@ var red = '#FF0000';
 var yellow = '#F0F000';
 var purple = '#FF1AFF';
 var orange = '#ff6600';
-
+var all_markers = {};
+var counter = 0;
 
 
 // -----------------------------------------------------------
@@ -337,6 +340,11 @@ function marquePoi(lat,lng,ico,titre, visibility) {
   //icon: ico,
   visible: visibility
   });
+  // marker.addListener('click', function() {
+  //         console.log("hi")
+  // });
+  all_markers[counter] = marqueur
+  counter++
   return marqueur;
 };
 
@@ -383,56 +391,97 @@ function getCoordinatesonClick() {
 
 // -----------------------------------------------------------
 
+// < color = ['#E59500', '#F44336', '#E5DADA', '#52DEE5'] %>
+// < @coordinates_hash.each_with_index do |coordinate,i| %>
+// createParcours(<= coordinate %>, '<= color[i] %>');
+// < end %>
 
-hashDanslArray = [
-  {lat: 47.203549031023535, lng: -1.546175479888916},
-  {lat: 47.20876778904724, lng: -1.5497159957885742},
-  {lat: 47.211905, lng: -1.546881 },
-  {lat: 47.213551, lng: -1.548048 },
-  {lat: 47.2153952, lng: -1.5468317}
-];
 
-hashDanslArRotule =[
-  {lat: 47.211905, lng: -1.546881},
-  {lat: 47.211788, lng: -1.5457677},
-  {lat: 47.215184, lng: -1.5495447},
-  {lat: 47.22522246489705, lng: -1.5627622604370117}
-];
-
-hashOther = [
-{lat: 47.22851570160647, lng: -1.5333867073059082},
-{lat: 47.21169764879896, lng: -1.5566253662109375},
-{lat: 47.21647836591959, lng: -1.5874385833740234}
-];
-
-hashNowSixElements = [
-{lat: 47.20382601711648, lng:  -1.5516471862792969},
-{lat: 47.21467107231053, lng:  -1.5148258209228516},
-{lat: 47.241016480767314, lng:  -1.4996337890625},
-{lat: 47.248707802221624, lng:  -1.5095901489257812},
-{lat: 47.24538668677013, lng: -1.5174007415771484},
-{lat: 47.231517323193515, lng:  -1.6373062133789062}
-];
-
-hashSixElements = [
-{lat: 47.20964239099345, lng:  -1.570444107055664},
-{lat: 47.21130409495898, lng:  -1.559007167816162},
-{lat: 47.21054613118688, lng:  -1.5557670593261719},
-{lat: 47.20531297036713, lng:  -1.5546727180480957},
-{lat: 47.20362192224085, lng:  -1.5702080726623535},
-{lat: 47.19984602541013, lng:  -1.5732765197753906}
-];
-
-// createParcours(, '#E59500');
-// createParcours(, '#F44336');
-// createParcours(hashOther, '#E5DADA');
-// createParcours(hashNowSixElements, '#52DEE5');
-// createParcours(hashSixElements, orange);
-// getCoordinatesonClick();
 <% color = ['#E59500', '#F44336', '#E5DADA', '#52DEE5'] %>
 <% @coordinates_hash.each_with_index do |coordinate,i| %>
-createParcours(<%= coordinate %>, '<%= color[i] %>');
+createParcours(<%= @coordinates_hash[i] %>, '<%= color[i] %>');
 <% end %>
 
+
+// var maLatLng1 = new google.maps.LatLng(47.21175595282318,  -1.5745854377746582);
+// var marqueur1 = new google.maps.Marker({
+//   position: maLatLng1,
+//   map: map,
+//   title: titre,
+//   //icon: ico,
+//   visible: true
+//   });
+
+// var maLatLng2 = new google.maps.LatLng(47.21484597438411,  -1.5404462814331055);
+// var marqueur2 = new google.maps.Marker({
+//   position: maLatLng2,
+//   map: map,
+//   title: titre,
+//   //icon: ico,
+//   visible: true
+//   });
+// google.maps.event.addListener(marker, 'click', function () {
+//    // do something with this marker ...
+//    this.setTitle('I am clicked');
+// });
+// marqueur1.addListener('click', function() {
+//     console.log("hello");
+//   });
+
+// marqueur2.addListener('click', function() {
+//     console.log("hi");
+//   });
+
+//oklm
+
+
+for(var i = 0; i < Object.keys(all_markers).length; i++) {
+all_markers[i].addListener('click', function() {
+  // console.log(this.position.lat());
+ // ajax
+ var latit = this.position.lat();
+ $.ajax({
+    url: "http://localhost:3000/value/?pos="+latit,
+    success: function(data) {
+      for(var j = 0; j < data.length; j++) {
+        document.getElementById('journey-title').innerHTML = data[0]["journeyname"];
+        document.getElementById('poi-title').innerHTML = data[0]["poiname"];
+
+      }
+    //console.log(data);
+    },
+
+    error: function(jqXHR) {
+
+    }
+  });
+
+
+});
+}
+
+
+// oklm
+// $(document).ready(function() {
+
+// ajax
+ // $.ajax({
+ //    url: "https://api.github.com/users/" + $('#username').val() + "/repos",
+ //    success: function(data) {
+ //      $('#repos').empty();
+ //      data.forEach(function(repository) {
+ //        $('#repos').append("<li>" + repository.full_name + "</li>");
+ //      });
+ //    },
+ //    error: function(jqXHR) {
+ //      $('#repos').empty().append("<li>" + jqXHR.responseText + "</li>");
+ //    }
+ //  });
+// ajax
+
+// });
+// all_markers.addListener('click', function() {
+
+// });
 
 </script>
