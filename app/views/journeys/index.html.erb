@@ -493,7 +493,7 @@ all_markers[i].addListener('click', function() {
  // ajax
  var latit = this.position.lat();
  $.ajax({
-    url: "http://localhost:3000/value/?pos="+latit,
+    url: "/value/?pos="+latit,
     success: function(data) {
 
       // for(var j = 0; j < data.length; j++) {
