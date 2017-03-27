@@ -1,5 +1,4 @@
-<% content_for :meta_title, "#{@journey_pois.name} is on #{DEFAULT_META["title"]}" %>
-<% content_for :meta_description %>
+
 
 
 <div class="container-full">
@@ -59,7 +58,6 @@
           <div class="body-description">
 
             <p><%= @poi.description %></p>
-            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
 
           </div>
 
@@ -73,19 +71,10 @@
             <%= @poi.video %>
             <%= @poi.sound %>
             </div>
-
-
-
           </div>
-
          </div>
-
-
-
       </div>
-
     </div>
-
   </div>
 
 </div>
