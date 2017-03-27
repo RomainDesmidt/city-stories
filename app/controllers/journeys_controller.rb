@@ -11,6 +11,7 @@ class JourneysController < ApplicationController
       end
       @coordinates_hash << @coordinates_array
     end
+
   end
 
   def show
@@ -18,4 +19,3 @@ class JourneysController < ApplicationController
 
 
 end
-

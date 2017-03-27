@@ -9,7 +9,7 @@
 
         <div class="journeys-footer ">
           <div class="journeys-footer-title">
-            <h4 style="text-decoration: none; color: white;"> <%= link_to('Chateau des ducs de Bretagne', destroy_user_session_path, :method => :delete, class: "link-to-logout") %></h4>
+            <h4 style="text-decoration: none; color: white;"> <%= link_to('Chateau des ducs de Bretagne', destroy_user_session_path, :method => :delete, class: "link-to-logout") %> </h4>
 
           </div>
         </div>
@@ -421,19 +421,20 @@ createParcours(<%= @coordinates_hash[0] %>, '<%= color[1] %>');
 
 for(var i = 0; i < Object.keys(all_markers).length; i++) {
 all_markers[i].addListener('click', function() {
-  var a = this.title;
+  // console.log(this.position.lat());
+ // ajax
+ var latit = this.position.lat();
+ $.ajax({
+    url: "http://localhost:3000/value/?pos="+latit,
+    success: function(data) {
+      // parser = new DOMParser();
+      // xmlDoc = parser.parseFromString(data,"text/xml");
+     console.log(data["lato"]);
+    },
+    error: function(jqXHR) {
 
-    $.ajax({
-        type:"GET",
-        url:"#",
-        data: {"Hello": "World"},
-        datatype: 'html',
-        success: function(data){
-           $('input#qsearch').html(data);
-        }
-    }).done(function() {
-
-    });
+    }
+  });
 
 
 });

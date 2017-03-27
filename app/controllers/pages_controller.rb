@@ -10,4 +10,12 @@ class PagesController < ApplicationController
 
   def template
   end
+
+
+  def value
+    @poi = POI.all
+    @a = {}
+    @a = {lato: params[:pos], c: "d"}
+    render :json => @a
+  end
 end
