@@ -1,0 +1,27 @@
+body {
+//  background-image: image-url('background-sessions.png'); // link to /assets/images/texture.png
+  background-size: cover;
+}
+
+.row-session > [class*="col-"] {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+.form-session {
+  margin-top: 100px;
+  border: 1px solid $brand-color;
+  border-radius: 3px;
+  background-color: white;
+
+}
+
+.color-labels {
+  color: white;
+}
+
+.test {
+  padding: 0px 25px 25px 25px;
+
+}
+
