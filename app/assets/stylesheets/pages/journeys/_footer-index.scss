@@ -1,5 +1,11 @@
+.avatar-selected {
+  width: 40px;
+  border-radius: 50%;
+}
 
-.white-container {
+
+
+.white-container-index {
 
   height: 20vh;
 
@@ -9,18 +15,27 @@
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  padding-left: 20px;
-  padding-top: 20px;
-  padding-right: 20px;
-  width: 100%
+
+  width: 100%;
 }
 
-.title-icons {
+.portrait{
+  padding: 20px 20px 20px 20px;
+}
+
+.portrait-active{
+  background-color: $brand-color;
+}
+
+
+.journey-details {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
   padding: 20px 20px 15px 20px;
+  background-color: $brand-color;
+  color: white;
 
 
   .title {

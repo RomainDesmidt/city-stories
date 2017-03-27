@@ -14,50 +14,73 @@
 
           </div>
         </div>
+
+        <% poi = POI.last %>
+
+
         <div class="white-container-index">
           <div class="affichage-portraits">
-
-
-            <% poi = POI.first %>
-
-
-            <%= poi.journeys.each do |journey| %>
-              <div class="user-avatar" data-id="<%= "journey-#{journey.id}"%>"> <%= image_tag "logo.png",  alt: "user", class: "avatar-medium" %><div>
-              <div class="title-icons">
-                <div id="<%= "journey-#{journey.id}" %>">
-                  <h3 class="title"><%= journey.name%></h3>
-                </div>
-                  <ul class="icons list-unstyled list-inline">
-                    <% if journey.journey_pois.find_by_poi_id(poi.id).text %>
-                      <li>
-                        <i class="fa fa-font btn-fa" aria-hidden="true"></i>
-                      </li>
-                    <% end %>
-
-                    <% if journey.journey_pois.find_by_poi_id(poi.id).video %>
-                      <li>
-                        <i class="fa fa-youtube-play btn-fa" aria-hidden="true"></i>
-                      </li>
-                    <% end %>
-
-                    <% if journey.journey_pois.find_by_poi_id(poi.id).sound %>
-                      <li>
-                        <i class="fa fa-microphone btn-fa" aria-hidden="true"></i>
-                      </li>
-                    <% end %>
-
-                    <% if journey.journey_pois.find_by_poi_id(poi.id).photo %>
-                      <li>
-                        <i class="fa fa-camera btn-fa" aria-hidden="true"></i>
-                      </li>
-                    <% end %>
-                  </ul>
+            <% poi.journeys.each do |journey| %>
+              <div class="portrait" data-id="<%= "#journey-#{journey.id}"%>">
+                <%= image_tag "logo.png",  alt: "user", class: "avatar-selected" %>
               </div>
             <% end %>
           </div>
+
+            <% poi.journeys.each do |journey| %>
+              <div class="journey-details" id="<%= "journey-#{journey.id}" %>">
+                <h3 class="title"><%= journey.name%></h3>
+                <ul class="icons list-unstyled list-inline">
+                  <% if journey.journey_pois.find_by_poi_id(poi.id).text %>
+                    <li>
+                      <i class="fa fa-font btn-fa" aria-hidden="true"></i>
+                    </li>
+                  <% end %>
+
+                  <% if journey.journey_pois.find_by_poi_id(poi.id).video %>
+                    <li>
+                      <i class="fa fa-youtube-play btn-fa" aria-hidden="true"></i>
+                    </li>
+                  <% end %>
+
+                  <% if journey.journey_pois.find_by_poi_id(poi.id).sound %>
+                    <li>
+                      <i class="fa fa-microphone btn-fa" aria-hidden="true"></i>
+                    </li>
+                  <% end %>
+
+                  <% if journey.journey_pois.find_by_poi_id(poi.id).photo %>
+                    <li>
+                      <i class="fa fa-camera btn-fa" aria-hidden="true"></i>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
 <!-- DE COMMENTER ICI -->
         </div>
 
+<!-- BEGIN script tab behavior -->
+<% content_for(:js) do %>
+  <%= javascript_tag do %>
+    // js code here
+    $('.journey-details').hide();
+    $('.portrait').removeClass('portrait-active');
+
+    $('.journey-details').first().show();
+    $('.portrait').first().addClass('portrait-active');
+
+    $('.portrait').on('click', function() {
+      $('.journey-details').hide();
+      $('.portrait').removeClass('portrait-active');
+
+      $($(this).data('id')).show();
+      $(this).addClass('portrait-active');
+    });
+
+  <% end %>
+<% end %>
+<!-- END script tab behavior -->
 
 
         <!-- <div class="sum-poi-journeys">
@@ -443,12 +466,12 @@ all_markers[i].addListener('click', function() {
  $.ajax({
     url: "http://localhost:3000/value/?pos="+latit,
     success: function(data) {
-      for(var j = 0; j < data.length; j++) {
-        document.getElementById('journey-title').innerHTML = data[0]["journeyname"];
-        document.getElementById('poi-title').innerHTML = data[0]["poiname"];
+      // for(var j = 0; j < data.length; j++) {
+      //   document.getElementById('journey-title').innerHTML = data[0]["journeyname"];
+      //   document.getElementById('poi-title').innerHTML = data[0]["poiname"];
 
-      }
-    //console.log(data);
+      // }
+      console.log(data);
     },
 
     error: function(jqXHR) {

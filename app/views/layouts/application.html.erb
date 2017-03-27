@@ -16,6 +16,8 @@
     <%= render 'shared/flashes' %>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_API_GMAP"] %>"></script>
     <%= yield %>
+
     <%= javascript_include_tag 'application' %>
+    <%= yield(:js) %>
   </body>
 </html>
