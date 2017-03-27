@@ -8,28 +8,28 @@ puts "Creating users..."
 mathilde = User.create!(
   pseudo: "mathilde",
   email: "mathilde@gmail.com",
-  # TODO: avatar
+  avatar: cl_image_tag("mathilde_melypi.jpg")
   password: "123456",
   password_confirmation: "123456"
 )
 grégoire = User.create!(
   pseudo: "grégoire",
   email: "grégoire@gmail.com",
-  # TODO: avatar
+  avatar: cl_image_tag("gregory_valton_r4zcsn.jpg")
   password: "123456",
   password_confirmation: "123456"
 )
 nicolas = User.create!(
   pseudo: "nicolas",
   email: "nicolas@gmail.com",
-  # TODO: avatar
+  avatar: cl_image_tag("nicolas_qizbjj.jpg")
   password: "123456",
   password_confirmation: "123456"
 )
 camille = User.create!(
   pseudo: "camille",
   email: "camille@gmail.com",
-  # TODO: avatar
+  avatar: cl_image_tag("camille_hlabug.jpg")
   password: "123456",
   password_confirmation: "123456"
 )
@@ -39,7 +39,7 @@ rue_saint_leonard = POI.create!(latitude: 47.218232, longitude: -1.550893)
 tram_50_otages = POI.create!(latitude: 47.220081, longitude: -1.555241)
 bord_de_erdre = POI.create!(latitude: 47.242265, longitude: -1.547478)
 cathedrale = POI.create!(latitude: 47.218232, longitude: -1.550893)
-chateau_des_ducs = POI.create!(latitude: 47.116109, longitude: -1.550463)
+chateau_des_ducs = POI.create!(latitude: 47.216225, longitude: -1.549492)
 chien_stupide = POI.create!(latitude: 47.216491, longitude: -1.551437)
 cimetiere_misericorde = POI.create!(latitude: 47.223311, longitude: -1.567611)
 gare_sncf = POI.create!(latitude: 47.217674, longitude: -1.541814)
