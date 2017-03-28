@@ -10,6 +10,10 @@ $(document).ready(function() {
         var h4ToChange = $('h4.' + classToRem);
         h4ToChange.siblings().addClass("hidden-content");
 
+        $('div.tab > div').removeClass("hidden-content");
+        var divToChange = $('div.' + classToRem)
+        divToChange.siblings().addClass("hidden-content");
+
         // console.log(h4ToChange);
         // h4ToChange.removeClass('hidden-content');
         //$('h4').addClass('hidden-content');
@@ -20,8 +24,9 @@ $(document).ready(function() {
         // console.log(dir);
         //$('journeys-footer-title').child().addClass("hidden-content");
 
-        var tab = $(this).attr("href");
-        $(".tab-content").not(tab).css("display", "none");
-        $(tab).fadeIn();
+        // var tab = $(this).attr("href");
+        // $(".tab-content").not(tab).css("display", "none");
+        // $(tab).fadeIn();
     });
 });
+

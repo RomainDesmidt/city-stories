@@ -8,7 +8,7 @@
 <!-- COMMENTER ICI -->
         <div class="journeys-footer ">
           <div class="journeys-footer-title">
-            <h4 class="x hidden-content" id="poi-title1">  </h4>
+            <h4 class="x" id="poi-title1">  </h4>
             <h4 class="y hidden-content" id="poi-title2">  </h4>
             <h4 class="z hidden-content" id="poi-title3">  </h4>
             <h4 class="w hidden-content" id="poi-title4">  </h4>
@@ -16,19 +16,35 @@
         </div>
 <div class="hidden-content" id="tabs-container">
     <ul class="tabs-menu">
-        <li class="current"><a href="#tab-1" class="x" id="tab-1">Tab 1</a></li>
-        <li><a href="#tab-2" class="y" id="tab-2">Tab 2</a></li>
-        <li><a href="#tab-3" class="z" id="tab-3">Tab 3</a></li>
-        <li><a href="#tab-4" class="w" id="tab-4">Tab 4</a></li>
+        <li class="current">
+          <a href="#tab-1" class="x" id="tab-1">
+          <img id="img-1" src=""></img>
+          </a>
+        </li>
+        <li>
+          <a href="#tab-2" class="y" id="tab-2">
+            <img id="img-2" src=""></img>
+          </a>
+        </li>
+        <li>
+          <a href="#tab-3" class="z" id="tab-3">
+            <img id="img-3" src=""></img>
+          </a>
+        </li>
+        <li>
+          <a href="#tab-4" class="w" id="tab-4">
+            <img id="img-4" src=""></img>
+          </a>
+        </li>
     </ul>
     <div class="tab">
-        <div id="tab-1" class="tab-content">
+        <div id="itab-1" class="x">
         </div>
-        <div id="tab-2" class="tab-content">
+        <div id="itab-2" class="y hidden-content">
         </div>
-        <div id="tab-3" class="tab-content">
+        <div id="itab-3" class="z hidden-content">
         </div>
-        <div id="tab-4" class="tab-content">
+        <div id="itab-4" class="w hidden-content">
         </div>
     </div>
 </div>
@@ -506,20 +522,49 @@ all_markers[i].addListener('click', function() {
       };
       for(var j = 0; j < 4; j++) {
         var count = j+1;
+        var img = "img-"+count
         var jtitle = "tab-"+count;
+        var ititle = "itab-"+count;
         var ptitle = "poi-title"+count;
-        document.getElementById(jtitle).innerHTML = "";
+        document.getElementById(img).src = "";
         document.getElementById(ptitle).innerHTML = "";
+        document.getElementById(ititle).innerHTML = "";
       //  document.getElementById('poi-title'+j).innerHTML = data[0]["poiname"];
 
       }
       for(var j = 0; j < length; j++) {
         var count = j+1;
+        var img = "img-"+count
         var jtitle = "tab-"+count;
+        var ititle = "itab-"+count;
         var ptitle = "poi-title"+count;
-        document.getElementById(jtitle).innerHTML = data[j]["journeyname"];
+        document.getElementById(img).src = data[j]["avatar"];
         document.getElementById(ptitle).innerHTML = data[j]["poiname"];
-      //  document.getElementById('poi-title'+j).innerHTML = data[0]["poiname"];
+        var toAddToDiv = data[j]["journeyname"];
+        if (data[j]["poiphoto"]!= null) {
+          toAddToDiv += " "+ "<i class='fa fa-camera btn-fa' aria-hidden='true'></i>";
+          // console.log(data[j]["poiphoto"]);
+          // console.log(toAddToDiv);
+        };
+        if (data[j]["poivideo"]!= null) {
+          toAddToDiv += " "+ "<i class='fa fa-youtube-play btn-fa' aria-hidden='true'></i>";
+          // console.log(data[j]["poivideo"]);
+          // console.log(toAddToDiv);
+        };
+        if (data[j]["poisound"]!= null) {
+          toAddToDiv += " "+ "<i class='fa fa-microphone btn-fa' aria-hidden='true'></i>";
+          // console.log(data[j]["poisound"]);
+          // console.log(toAddToDiv);
+        };
+        if (data[j]["poitext"]!= null) {
+          toAddToDiv += " "+ "<i class='fa fa-font btn-fa' aria-hidden='true'></i>";
+          // console.log(data[j]["poitext"]);
+          // console.log(toAddToDiv);
+        };
+
+        document.getElementById(ititle).innerHTML = toAddToDiv;
+        // console.log(document.getElementById(ititle).innerHTML)
+;      //  document.getElementById('poi-title'+j).innerHTML = data[0]["poiname"];
 
 
       }

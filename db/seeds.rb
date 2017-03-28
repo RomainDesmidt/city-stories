@@ -5,34 +5,44 @@ Journey.destroy_all
 User.destroy_all
 
 puts "Creating users..."
+url = "http://lorempixel.com/50/50/people/"
 mathilde = User.create!(
   pseudo: "mathilde",
   email: "mathilde@gmail.com",
-  avatar: cl_image_tag("mathilde_melypi.jpg")
   password: "123456",
   password_confirmation: "123456"
 )
-grégoire = User.create!(
-  pseudo: "grégoire",
-  email: "grégoire@gmail.com",
-  avatar: cl_image_tag("gregory_valton_r4zcsn.jpg")
+mathilde.remote_avatar_url = url
+mathilde.save!
+
+gregoire = User.create!(
+  pseudo: "gregoire",
+  email: "gregoire@gmail.com",
   password: "123456",
   password_confirmation: "123456"
 )
+gregoire.remote_avatar_url = url
+gregoire.save!
+
 nicolas = User.create!(
   pseudo: "nicolas",
   email: "nicolas@gmail.com",
-  avatar: cl_image_tag("nicolas_qizbjj.jpg")
   password: "123456",
   password_confirmation: "123456"
 )
+
+nicolas.remote_avatar_url = url
+nicolas.save!
+
 camille = User.create!(
   pseudo: "camille",
   email: "camille@gmail.com",
-  avatar: cl_image_tag("camille_hlabug.jpg")
   password: "123456",
   password_confirmation: "123456"
 )
+
+camille.remote_avatar_url = url
+camille.save!
 
 puts "Creating POIs..."
 rue_saint_leonard = POI.create!(latitude: 47.218232, longitude: -1.550893)
@@ -127,7 +137,7 @@ journey_1 = Journey.create!(
 
 journey_2 = Journey.create!(
   name: "les amoureux",
-  user: grégoire,
+  user: gregoire,
   journey_pois: [
     JourneyPOI.new(
       name: "Passage Pommeray",
