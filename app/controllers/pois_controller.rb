@@ -1,7 +1,4 @@
 class PoisController < ApplicationController
-
-
-
   def show
     @poi         = POI.find(params[:id])
     @journey     = Journey.find(params[:journey_id])
@@ -24,28 +21,16 @@ class PoisController < ApplicationController
     @previous_journey_for_poi = @poi.journeys[previous_journey_for_poi_index]
 
     @coordinates_hash = []
-    @journeys = Journey.all
-    @journeys.each do |journey|
-      @coordinates_array = []
-      journey.pois.each do |poi|
-        latitude = poi.latitude
-        longitude = poi.longitude
-        @coordinates_array << [latitude , longitude]
-      end
-      @coordinates_hash << @coordinates_array
+
+    @coordinates_array = []
+    @journey.pois.each do |poi|
+      latitude = poi.latitude
+      longitude = poi.longitude
+      @coordinates_array << [latitude , longitude]
     end
-
-    # poi_id_toseek = @poi.poi_id
-
-  #  @diff_journey.each do |journey|
-    # acceder aux journey disposant du meme poi que journey_id
-    # liste des journey disposant du meme poi
-
-      #journey.journey_pois.where(poi_id: poi.poi_id)[0]
-    #end
+    @coordinates_hash << @coordinates_array
   end
 
   def index
   end
-
 end

@@ -4,8 +4,6 @@
       <div class="container-height">
         <div class="map" id="map" style="z-index: 99;">
         </div>
-
-<!-- COMMENTER ICI -->
         <div class="journeys-footer ">
           <div class="journeys-footer-title">
             <h4 class="x" id="poi-title1">  </h4>
@@ -49,112 +47,7 @@
     </div>
   </div>
 </div>
-<!-- <= link_to('Chateau des ducs de Bretagne', destroy_user_session_path, :method => :delete, class: "link-to-logout") %> -->
-<!-- style="text-decoration: none; color: white;" -->
-       <!--  <div class="journeys-footer ">
-          <div class="journeys-footer-title">
-            <h4 id="poi-title">  </h4>
 
-          </div>
-        </div>
-
-        <% poi = POI.last %>
-
-
-        <div class="white-container-index">
-          <div class="affichage-portraits">
-            <% poi.journeys.each do |journey| %>
-              <div class="portrait" data-id="<%= "#journey-#{journey.id}"%>">
-                <%= image_tag "logo.png",  alt: "user", class: "avatar-selected" %>
-              </div>
-            <% end %>
-          </div>
-
-
-            <% poi.journeys.each do |journey| %>
-              <div class="journey-details" id="<%= "journey-#{journey.id}" %>">
-                <h3 class="title"><%= journey.name%></h3>
-                <ul class="icons list-unstyled list-inline">
-                  <% if journey.journey_pois.find_by_poi_id(poi.id).text %>
-                    <li>
-                      <i class="fa fa-font btn-fa" aria-hidden="true"></i>
-                    </li>
-                  <% end %>
-
-                  <% if journey.journey_pois.find_by_poi_id(poi.id).video %>
-                    <li>
-                      <i class="fa fa-youtube-play btn-fa" aria-hidden="true"></i>
-                    </li>
-                  <% end %>
-
-                  <% if journey.journey_pois.find_by_poi_id(poi.id).sound %>
-                    <li>
-                      <i class="fa fa-microphone btn-fa" aria-hidden="true"></i>
-                    </li>
-                  <% end %>
-
-                  <% if journey.journey_pois.find_by_poi_id(poi.id).photo %>
-                    <li>
-                      <i class="fa fa-camera btn-fa" aria-hidden="true"></i>
-                    </li>
-                  <% end %>
-                </ul>
-              </div>
-            <% end %> -->
-<!-- DE COMMENTER ICI -->
-        </div>
-
-<!-- BEGIN script tab behavior -->
-<!-- < content_for(:js) do %>
-  <= javascript_tag do %>
-    // js code here
-    $('.journey-details').hide();
-    $('.portrait').removeClass('portrait-active');
-
-    $('.journey-details').first().show();
-    $('.portrait').first().addClass('portrait-active');
-
-    $('.portrait').on('click', function() {
-      $('.journey-details').hide();
-      $('.portrait').removeClass('portrait-active');
-
-      $($(this).data('id')).show();
-      $(this).addClass('portrait-active');
-    });
-
-  < end %>
-< end %> -->
-<!-- END script tab behavior -->
-
-
-        <!-- <div class="sum-poi-journeys">
-          <div class="white-container">
-            <div class="photo-poi flex-items" style="background-image: url('http://lorempixel.com/500/500');">
-            </div>
-            <div class="flex-items flex-items-right">
-
-                  <p class="padding-p">Creators on the spot</p>
-                  <div class="list-users">
-                     <ul class="list-inline list-unstyled">
-                        <li> <= image_tag "logo.png",  alt: "user", class: "avatar-medium" %> </li>
-                        <li><= image_tag "logo.png",  alt: "user", class: "avatar-medium" %></li>
-                    </ul>
-                  </div>
-
-
-                <div>
-                  <ul class="list-inline list-unstyled poi-content">
-                    <li><i class="fa fa-font  btn-fa" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-exclamation  btn-fa" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-youtube-play btn-fa" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-microphone btn-fa" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-camera btn-fa" aria-hidden="true"></i></li>
-                  </ul>
-                </div>
-            </div>
-          </div>
-          </div>
-        </div> -->
 
 
 <script type="text/javascript">
@@ -366,24 +259,18 @@ var styleOut =
   }
 ];
 
-// La Cordee Nantes Lat Lng
 var centerMap = new google.maps.LatLng(47.216941, -1.551437);
 var myOptions = {
-  zoom: 12,
+  zoom: 13,
   center: centerMap,
   scrollwheel: false,
   mapTypeId: google.maps.MapTypeId.ROADMAP,
-  styles: styleOut
+  styles: styleOut,
+  mapTypeControl: false,
+  streetViewControl: false,
+  zoomControl: false
 };
 var map = new google.maps.Map(document.getElementById('map'), myOptions);
-
-
-// http://freeiconbox.com/icon/256/34338.png
-// http://maps.google.com/mapfiles/kml/shapes/flag.png
-// http://maps.google.com/mapfiles/kml/shapes/arrow.png
-// http://www.freeiconspng.com/uploads/illuminati-icon-png-29.png
-// mapx50.png
-// -----------------------------------------------------------
 var ico = "dollarx50.png";
 var titre = "La Cordee";
 var blue = '#0000FF';
@@ -403,14 +290,10 @@ function marquePoi(lat,lng,ico,titre, visibility) {
   position: maLatLng,
   map: map,
   title: titre,
-  //icon: ico,
   visible: visibility
   });
-  // marker.addListener('click', function() {
-  //         console.log("hi")
-  // });
-  all_markers[counter] = marqueur
-  counter++
+  all_markers[counter] = marqueur;
+  counter++;
   return marqueur;
 };
 
@@ -432,8 +315,8 @@ function createParcours(hashDanslArray, color) {
     path: coordinatesArray,
     geodesic: true,
     strokeColor: color,
-    strokeOpacity: 0.5,
-    strokeWeight: 10,
+    strokeOpacity: 1,
+    strokeWeight: 6,
   });
   parcoursPath.setMap(map);
 };
@@ -455,13 +338,6 @@ function getCoordinatesonClick() {
   });
 };
 
-// -----------------------------------------------------------
-
-// < color = ['#E59500', '#F44336', '#E5DADA', '#52DEE5'] %>
-// < @coordinates_hash.each_with_index do |coordinate,i| %>
-// createParcours(<= coordinate %>, '<= color[i] %>');
-// < end %>
-
 
 <% color = ['#E59500', '#F44336', '#E5DADA', '#52DEE5'] %>
 <% @coordinates_hash.each_with_index do |coordinate,i| %>
@@ -469,50 +345,14 @@ createParcours(<%= @coordinates_hash[i] %>, '<%= color[i] %>');
 <% end %>
 
 
-// var maLatLng1 = new google.maps.LatLng(47.21175595282318,  -1.5745854377746582);
-// var marqueur1 = new google.maps.Marker({
-//   position: maLatLng1,
-//   map: map,
-//   title: titre,
-//   //icon: ico,
-//   visible: true
-//   });
-
-// var maLatLng2 = new google.maps.LatLng(47.21484597438411,  -1.5404462814331055);
-// var marqueur2 = new google.maps.Marker({
-//   position: maLatLng2,
-//   map: map,
-//   title: titre,
-//   //icon: ico,
-//   visible: true
-//   });
-// google.maps.event.addListener(marker, 'click', function () {
-//    // do something with this marker ...
-//    this.setTitle('I am clicked');
-// });
-// marqueur1.addListener('click', function() {
-//     console.log("hello");
-//   });
-
-// marqueur2.addListener('click', function() {
-//     console.log("hi");
-//   });
-
-//oklm
-
 
 for(var i = 0; i < Object.keys(all_markers).length; i++) {
 all_markers[i].addListener('click', function() {
-  // console.log(this.position.lat());
- // ajax
- var latit = this.position.lat();
+ var currentLatitude = this.position.lat();
  $.ajax({
-    url: "/value/?pos="+latit,
+    url: "/value/?pos="+currentLatitude,
     success: function(data) {
 
-      // for(var j = 0; j < data.length; j++) {
-      //   document.getElementById('journey-title').innerHTML = data[0]["journeyname"];
-      //   document.getElementById('poi-title').innerHTML = data[0]["poiname"];
       $('#tabs-container').removeClass('hidden-content');
       var length = data.length;
       if (data.length > 4) {
@@ -527,7 +367,7 @@ all_markers[i].addListener('click', function() {
         document.getElementById(img).src = "";
         document.getElementById(ptitle).innerHTML = "";
         document.getElementById(ititle).innerHTML = "";
-      //  document.getElementById('poi-title'+j).innerHTML = data[0]["poiname"];
+
 
       }
       for(var j = 0; j < length; j++) {
@@ -543,32 +383,25 @@ all_markers[i].addListener('click', function() {
         toAddToDiv += " "+"<span>"+ "<a class='a-to-pad' href='/journeys/"+data[j]["journeyid"]+"/pois/"+data[j]["poiid"]+"'>ICI</a>"
         if (data[j]["poiphoto"]!= null) {
           toAddToDiv += " "+ "<i class='fa fa-camera btn-fa' aria-hidden='true'></i>";
-          // console.log(data[j]["poiphoto"]);
-          // console.log(toAddToDiv);
+
         };
         if (data[j]["poivideo"]!= null) {
           toAddToDiv += " "+ "<i class='fa fa-youtube-play btn-fa' aria-hidden='true'></i>";
-          // console.log(data[j]["poivideo"]);
-          // console.log(toAddToDiv);
+
         };
         if (data[j]["poisound"]!= null) {
           toAddToDiv += " "+ "<i class='fa fa-microphone btn-fa' aria-hidden='true'></i>";
-          // console.log(data[j]["poisound"]);
-          // console.log(toAddToDiv);
+
         };
         if (data[j]["poitext"]!= null) {
           toAddToDiv += " "+ "<i class='fa fa-font btn-fa' aria-hidden='true'></i>";
-          // console.log(data[j]["poitext"]);
-          // console.log(toAddToDiv);
+
         };
 
         document.getElementById(ititle).innerHTML = toAddToDiv +"</span></h4>";
-        // console.log(document.getElementById(ititle).innerHTML)
-;      //  document.getElementById('poi-title'+j).innerHTML = data[0]["poiname"];
-
 
       }
-      // console.log(data);
+
     },
 
     error: function(jqXHR) {
@@ -581,26 +414,4 @@ all_markers[i].addListener('click', function() {
 }
 
 
-// oklm
-// $(document).ready(function() {
-
-// ajax
- // $.ajax({
- //    url: "https://api.github.com/users/" + $('#username').val() + "/repos",
- //    success: function(data) {
- //      $('#repos').empty();
- //      data.forEach(function(repository) {
- //        $('#repos').append("<li>" + repository.full_name + "</li>");
- //      });
- //    },
- //    error: function(jqXHR) {
- //      $('#repos').empty().append("<li>" + jqXHR.responseText + "</li>");
- //    }
- //  });
-// ajax
-
-// });
-// all_markers.addListener('click', function() {
-
-// });
 </script>

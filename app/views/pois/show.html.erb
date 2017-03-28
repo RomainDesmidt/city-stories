@@ -302,13 +302,16 @@ var styleOut =
 ];
 
 // La Cordee Nantes Lat Lng
-var centerMap = new google.maps.LatLng(47.216941, -1.551437);
+var centerMap = new google.maps.LatLng(<%= @poi.latitude %>, <%= @poi.longitude %>);
 var myOptions = {
-  zoom: 12,
+  zoom: 14,
   center: centerMap,
   scrollwheel: false,
   mapTypeId: google.maps.MapTypeId.ROADMAP,
-  styles: styleOut
+  styles: styleOut,
+  mapTypeControl: false,
+  streetViewControl: false,
+  zoomControl: false
 };
 var map = new google.maps.Map(document.getElementById('map'), myOptions);
 
@@ -319,7 +322,7 @@ var map = new google.maps.Map(document.getElementById('map'), myOptions);
 // http://www.freeiconspng.com/uploads/illuminati-icon-png-29.png
 // mapx50.png
 // -----------------------------------------------------------
-var ico = "dollarx50.png";
+var ico = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
 var titre = "La Cordee";
 var blue = '#0000FF';
 var green = '#00FF00';
@@ -334,11 +337,14 @@ var counter = 0;
 // -----------------------------------------------------------
 function marquePoi(lat,lng,ico,titre, visibility) {
   var maLatLng = new google.maps.LatLng(lat, lng);
+  if (lat == <%= @poi.latitude %>) {
+    ico = "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
+  };
   var marqueur = new google.maps.Marker({
   position: maLatLng,
   map: map,
   title: titre,
-  //icon: ico,
+  icon: ico,
   visible: visibility
   });
   // marker.addListener('click', function() {
@@ -367,8 +373,8 @@ function createParcours(hashDanslArray, color) {
     path: coordinatesArray,
     geodesic: true,
     strokeColor: color,
-    strokeOpacity: 0.5,
-    strokeWeight: 10,
+    strokeOpacity: 1,
+    strokeWeight: 6,
   });
   parcoursPath.setMap(map);
 };
@@ -399,7 +405,8 @@ function getCoordinatesonClick() {
 
 
   <% color = ['#E59500', '#F44336', '#E5DADA', '#52DEE5'] %>
-  <% @coordinates_hash.each_with_index do |coordinate,i| %>
-  createParcours(<%= @coordinates_hash[i] %>, '<%= color[i] %>');
-  <% end %>
+
+  createParcours(<%= @coordinates_hash[0] %>, '<%= color[0] %>');
+  // marquePoi(<%= @poi.latitude %>, <%= @poi.longitude %>, 'http://maps.google.com/mapfiles/ms/icons/red-dot.png' ,'current marker', true);
+
 </script>
