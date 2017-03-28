@@ -10,10 +10,15 @@ $(document).ready(function() {
         var h4ToChange = $('h4.' + classToRem);
         h4ToChange.siblings().addClass("hidden-content");
 
-        $('div.tab > div').removeClass("hidden-content");
-        var divToChange = $('div.' + classToRem)
-        divToChange.siblings().addClass("hidden-content");
 
+// ca bug on va tester autre chose
+        // $('div.tab > div').removeClass("hidden-content");
+        // var divToChange = $('div.' + classToRem);
+        // divToChange.siblings().addClass("hidden-content");
+// ca bug on va tester autre chose
+        $('div.tab > div').attr('style', '');
+        var divToChange = $('div.' + classToRem);
+        divToChange.siblings().attr('style', 'display: none;');
         // console.log(h4ToChange);
         // h4ToChange.removeClass('hidden-content');
         //$('h4').addClass('hidden-content');
