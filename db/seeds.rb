@@ -49,7 +49,7 @@ petit_port = POI.create!(latitude: 47.245819, longitude: -1.560954)
 pont_saint_mihiel = POI.create!(latitude: 47.222902, longitude: -1.552928)
 quai_des_antilles = POI.create!(latitude: 47.199820, longitude: -1.574387)
 rond_point_de_paris = POI.create!(latitude: 47.233968, longitude: -1.535798)
-trentmoult = POI.create!(latitude: 47.195262, longitude: -1.282165)
+trentmoult = POI.create!(latitude: 47.195252, longitude: -1.581603)
 ile_de_versaille = POI.create!(latitude: 47.226925, longitude: -1.554290)
 
 puts "Creating journeys..."
