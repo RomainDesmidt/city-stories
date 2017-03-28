@@ -26,14 +26,15 @@ class PagesController < ApplicationController
       poi.journeys.each do |journey|
         contenu = journey.journey_pois.where(poi_id: poi_id).first
         @user = {
+          journeyid: journey.id,
+          poiid: contenu.id,
           avatar: journey.user.avatar.url,
           journeyname: journey.name,
           poiname: contenu.name,
           poiphoto: contenu.photo.url,
           poivideo: contenu.video,
           poitext: contenu.text,
-          poisound: contenu.sound,
-
+          poisound: contenu.sound
         }
         @result << @user
       end
