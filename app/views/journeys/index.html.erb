@@ -541,6 +541,7 @@ all_markers[i].addListener('click', function() {
         document.getElementById(img).src = data[j]["avatar"];
         document.getElementById(ptitle).innerHTML = data[j]["poiname"];
         var toAddToDiv = data[j]["journeyname"];
+        toAddToDiv += " "+ "<a href='/journeys/"+data[j]["journeyid"]+"/pois/"+data[j]["poiid"]+"'>ICI</a>"
         if (data[j]["poiphoto"]!= null) {
           toAddToDiv += " "+ "<i class='fa fa-camera btn-fa' aria-hidden='true'></i>";
           // console.log(data[j]["poiphoto"]);
