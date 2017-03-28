@@ -1,26 +1,28 @@
-
-
-
 <div class="container-full">
   <div class="row">
       <div class="col-xs-12 col-md-6 col-md-offset-3">
         <div class="container-height">
             <div class="footer ">
               <div class="footer-user-change">
-                <i class="fa fa-angle-left btn-fa" aria-hidden="true"></i>
-                <%= image_tag "logo.png",  alt: "user", class: "avatar-small" %>
+                <%= link_to journey_poi_path(@previous_journey_for_poi, @poi) do %>
+                  <i class="fa fa-angle-left btn-fa" aria-hidden="true"></i>
+                  <%= @previous_journey_for_poi.user.avatar %>
+                <% end %>
               </div>
               <div class="footer-title-show">
               <p>Switch journey</p>
               </div>
               <div class="footer-user-change">
-                <%= image_tag "logo.png",  alt: "user", class: "avatar-small" %>
-                <i class="fa fa-angle-right btn-fa" aria-hidden="true"></i>
+                <%= link_to journey_poi_path(@next_journey_for_poi, @poi) do %>
+                  <% binding.pry %>
+                  <%= cl_image_tag @next_journey_for_poi.user.avatar %>
+                  <i class="fa fa-angle-right btn-fa" aria-hidden="true"></i>
+                <% end %>
               </div>
             </div>
         <div class="banner">
           <div>
-            <%= image_tag "logo.png",  alt: "user", class: "avatar-large" %>
+            <%= @journey.user.avatar %>
           </div>
           <div class="banner-title">
 
@@ -36,15 +38,20 @@
 
         <div class="footer-show ">
           <div class="footer-user-change">
-            <i class="fa fa-angle-left btn-fa" aria-hidden="true"></i>
+            <%= link_to journey_poi_path(@journey, @next_poi_for_journey) do %>
+              <i class="fa fa-angle-left btn-fa fa-white" aria-hidden="true"></i>
+            <% end %>
           </div>
 
           <div class="footer-title">
-          <h4><%= @poi.name %></h4>
+          <h4><%= @journey_poi.name%></h4>
           </div>
 
           <div class="footer-user-change">
-            <i class="fa fa-angle-right btn-fa" aria-hidden="true"></i>
+            <%= link_to journey_poi_path(@journey, @next_poi_for_journey) do %>
+            <i class="fa fa-angle-right btn-fa fa-white" aria-hidden="true"></i>
+            <% end %>
+
           </div>
         </div>
 
@@ -57,7 +64,7 @@
 
           <div class="body-description">
 
-            <p><%= @poi.description %></p>
+            <p><%= @journey_poi.description %></p>
 
           </div>
 
@@ -66,10 +73,10 @@
           <div class="body-media">
 
             <div class="img-responsive-custom">
-            <%= cl_image_tag @poi.photo %>
-            <%= @poi.text %>
-            <%= @poi.video %>
-            <%= @poi.sound %>
+            <%= cl_image_tag @journey_poi.photo %>
+            <%= @journey_poi.text %>
+            <%= @journey_poi.video %>
+            <%= @journey_poi.sound %>
             </div>
           </div>
          </div>
