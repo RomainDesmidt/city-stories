@@ -15,37 +15,34 @@
           </div>
         </div>
 <div class="hidden-content" id="tabs-container">
-    <ul class="tabs-menu">
+    <ul class="tabs-menu list-inline">
         <li class="current">
           <a href="#tab-1" class="x" id="tab-1">
-          <img id="img-1" src=""></img>
+          <img id="img-1" class="avatar" src=""></img>
           </a>
         </li>
         <li>
           <a href="#tab-2" class="y" id="tab-2">
-            <img id="img-2" src=""></img>
+            <img id="img-2" class="avatar" src=""></img>
           </a>
         </li>
         <li>
           <a href="#tab-3" class="z" id="tab-3">
-            <img id="img-3" src=""></img>
+            <img id="img-3" class="avatar" src=""></img>
           </a>
         </li>
         <li>
           <a href="#tab-4" class="w" id="tab-4">
-            <img id="img-4" src=""></img>
+            <img id="img-4" class="avatar" src=""></img>
           </a>
         </li>
     </ul>
+
     <div class="tab">
-        <div id="itab-1" class="x">
-        </div>
-        <div id="itab-2" class="y hidden-content">
-        </div>
-        <div id="itab-3" class="z hidden-content">
-        </div>
-        <div id="itab-4" class="w hidden-content">
-        </div>
+        <div id="itab-1" class="x" style=""></div>
+        <div id="itab-2" class="y hidden-content" style="display: none;"></div>
+        <div id="itab-3" class="z hidden-content" style="display: none;"></div>
+        <div id="itab-4" class="w hidden-content" style="display: none;"></div>
     </div>
 </div>
 <!-- <= link_to('Chateau des ducs de Bretagne', destroy_user_session_path, :method => :delete, class: "link-to-logout") %> -->
@@ -540,8 +537,9 @@ all_markers[i].addListener('click', function() {
         var ptitle = "poi-title"+count;
         document.getElementById(img).src = data[j]["avatar"];
         document.getElementById(ptitle).innerHTML = data[j]["poiname"];
-        var toAddToDiv = data[j]["journeyname"];
-        toAddToDiv += " "+ "<a href='/journeys/"+data[j]["journeyid"]+"/pois/"+data[j]["poiid"]+"'>ICI</a>"
+
+        var toAddToDiv = "<h4>"+ data[j]["journeyname"];
+        toAddToDiv += " "+"<span>"+ "<a class='a-to-pad' href='/journeys/"+data[j]["journeyid"]+"/pois/"+data[j]["poiid"]+"'>ICI</a>"
         if (data[j]["poiphoto"]!= null) {
           toAddToDiv += " "+ "<i class='fa fa-camera btn-fa' aria-hidden='true'></i>";
           // console.log(data[j]["poiphoto"]);
@@ -563,7 +561,7 @@ all_markers[i].addListener('click', function() {
           // console.log(toAddToDiv);
         };
 
-        document.getElementById(ititle).innerHTML = toAddToDiv;
+        document.getElementById(ititle).innerHTML = toAddToDiv +"</span></h4>";
         // console.log(document.getElementById(ititle).innerHTML)
 ;      //  document.getElementById('poi-title'+j).innerHTML = data[0]["poiname"];
 
