@@ -13,6 +13,7 @@
 .container-height-index {
 
   height: 100vh;
+  // background-color: $brand-color;
 
 }
 
@@ -21,8 +22,73 @@
  }
 
 .map-index-next {
-   height: 80vh;
+   height: 75vh;
 }
+
+.container-height-20vh {
+  height: 25vh;
+}
+
+// .a-to-right{
+//     position: absolute;
+//       right: 10px;
+//      bottom: 10px;
+// }
+
+.a-to-pad {
+     // position: absolute;
+     // right: 10px;
+    //transform: translateX(-50%);
+}
+
+.tab {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #fff;
+    margin-bottom: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+.a-100vh {
+  height: 100vh;
+  }
+}
+
+div[id*="itab-"] {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 1 1 auto;
+  position: relative;
+}
+
+.itab-element {
+  flex: 1 1 auto;
+  position: relative;
+}
+
+.to-left  {
+    position: absolute;
+    right: 10px;
+}
+
+
+
+ .a-to-left {
+margin-bottom: 0px;
+margin-top: 0px;
+ }
+
+// .a-50-center {
+//   position: absolute;
+//   left: 50%;
+//   bottom: 30%;
+//   transform: translateX(-50%);
+
+// }
 
 .tabs-menu-index {
 
@@ -33,14 +99,16 @@
     width: 100%;
 }
 
+
 div.tabs-menu-index > div {
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   flex: 1 1 auto;
   display: flex;
   justify-content: center;
+  background-color: white;
 
 
 }
@@ -56,13 +124,8 @@ div.tabs-menu-index > div.current {
     color: #2e7da3;
 }
 
-.tab {
-    background-color: #fff;
-    margin-bottom: 20px;
-    width: 100%;
 
 
-}
 
 .tab-content {
     width: 660px;
@@ -82,12 +145,15 @@ ul {
   list-style-type: none;
 }
 
-
-div[id*="itab-"] {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+h4[id*="poi-title"] {
+  background-color: $brand-color;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
+
+
 
 
 
@@ -110,3 +176,25 @@ a[title="Report errors in the road map or imagery to Google"] {
   display: flex;
 
 }
+
+.journeys-footer-index-i {
+   color: white;
+   text-align: center;
+
+   width: 100%;
+
+}
+
+.journeys-footer-title-index {
+  margin: 0;
+  padding: 0 0 0 0px;
+  h3 {
+  margin: 0;
+  padding: 0;
+  }
+  p {
+  margin: 0;
+  padding: 0;
+  }
+}
+
