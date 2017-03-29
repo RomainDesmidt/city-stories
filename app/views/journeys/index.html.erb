@@ -3,51 +3,57 @@ body {
     overflow:hidden;
 }
 </style>
-<div class="container-full">
+
+<div class="container-full a-100vh">
   <div class="row-no-padding">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="container-height-index">
 
         <div class="map-index-start" id="map" >
         </div>
-        <div class="journeys-footer ">
-          <div class="journeys-footer-title">
-            <h4 class="x" id="poi-title1">  </h4>
-            <h4 class="y hidden-content" id="poi-title2">  </h4>
-            <h4 class="z hidden-content" id="poi-title3">  </h4>
-            <h4 class="w hidden-content" id="poi-title4">  </h4>
-          </div>
-        </div>
-        <div class="hidden-content" id="tabs-container">
-          <div class="tabs-menu-index">
-            <div class="current">
-              <a href="#tab-1" class="x" id="tab-1">
-                <img id="img-1" class="avatar" src=""></img>
-              </a>
-            </div>
-            <div>
-              <a href="#tab-2" class="y" id="tab-2">
-                <img id="img-2" class="avatar" src=""></img>
-              </a>
-            </div>
-            <div>
-              <a href="#tab-3" class="z" id="tab-3">
-                <img id="img-3" class="avatar" src=""></img>
-              </a>
-            </div>
-            <div>
-              <a href="#tab-4" class="w" id="tab-4">
-                <img id="img-4" class="avatar" src=""></img>
-              </a>
+
+        <!-- <div class="container-height-20vh hidden-content"> -->
+          <div class="journeys-footer-index-i">
+            <div class="journeys-footer-title-index">
+              <h4 class="x" id="poi-title1">  </h4>
+              <h4 class="y hidden-content" id="poi-title2">  </h4>
+              <h4 class="z hidden-content" id="poi-title3">  </h4>
+              <h4 class="w hidden-content" id="poi-title4">  </h4>
             </div>
           </div>
-          <div class="tab">
-            <div id="itab-1" class="x" ></div>
-            <div id="itab-2" class="y hidden-content" ></div>
-            <div id="itab-3" class="z hidden-content" ></div>
-            <div id="itab-4" class="w hidden-content" ></div>
+
+          <div class="hidden-content" id="tabs-container">
+            <div class="tabs-menu-index">
+              <div class="current">
+                <a href="#tab-1" class="x" id="tab-1">
+                  <!-- <img id="img-1" class="avatar" src=""></img> -->
+                </a>
+              </div>
+              <div>
+                <a href="#tab-2" class="y" id="tab-2">
+                  <!-- <img id="img-2" class="avatar" src=""></img> -->
+                </a>
+              </div>
+              <div>
+                <a href="#tab-3" class="z" id="tab-3">
+                  <!-- <img id="img-3" class="avatar" src=""></img> -->
+                </a>
+              </div>
+              <div>
+                <a href="#tab-4" class="w" id="tab-4">
+                  <!-- <img id="img-4" class="avatar" src=""></img> -->
+                </a>
+              </div>
+            </div>
+            <div class="tab">
+              <div id="itab-1" class="x" ></div>
+              <div id="itab-2" class="y" style="display: none;"></div>
+              <div id="itab-3" class="z" style="display: none;"></div>
+              <div id="itab-4" class="w" style="display: none;"></div>
+            </div>
           </div>
-        </div>
+
+        <!-- </div> -->
       </div>
     </div>
   </div>
@@ -321,7 +327,7 @@ function createParcours(hashDanslArray, color) {
     geodesic: true,
     strokeColor: color,
     strokeOpacity: 1,
-    strokeWeight: 6,
+    strokeWeight: 4,
   });
   parcoursPath.setMap(map);
 };
@@ -359,6 +365,7 @@ all_markers[i].addListener('click', function() {
     success: function(data) {
 
       $('#tabs-container').removeClass('hidden-content');
+      $('.container-height-20vh').removeClass('hidden-content');
       if ( $('#map').attr('class') == 'map-index-start' ) {
         $('#map').removeClass('map-index-start');
         $('#map').addClass('map-index-next');
@@ -366,8 +373,8 @@ all_markers[i].addListener('click', function() {
       var currentDiv = $('div.tabs-menu-index > div:first-child');
       currentDiv.addClass('current');
       currentDiv.siblings().removeClass('current');
-      $('div.journeys-footer-title > h4').removeClass("hidden-content");
-      $('div.journeys-footer-title > h4:first-child').siblings().addClass("hidden-content");
+      $('div.journeys-footer-title-index > h4').removeClass("hidden-content");
+      $('div.journeys-footer-title-index > h4:first-child').siblings().addClass("hidden-content");
       $('div.tab > div').removeClass("hidden-content");
       $('div.tab > div:first-child').addClass("hidden-content");
 
@@ -381,9 +388,11 @@ all_markers[i].addListener('click', function() {
         var jtitle = "tab-"+count;
         var ititle = "itab-"+count;
         var ptitle = "poi-title"+count;
-        document.getElementById(img).src = "";
+        // document.getElementById(img).src = "";
         document.getElementById(ptitle).innerHTML = "";
         document.getElementById(ititle).innerHTML = "";
+        document.getElementById(jtitle).innerHTML = "";
+
 
 
       }
@@ -393,7 +402,8 @@ all_markers[i].addListener('click', function() {
         var jtitle = "tab-"+count;
         var ititle = "itab-"+count;
         var ptitle = "poi-title"+count;
-        document.getElementById(img).src = data[j]["avatar"];
+        // document.getElementById(img).src = data[j]["avatar"];
+        document.getElementById(jtitle).innerHTML = "<img class='avatar' id='"+img+"' src='"+data[j]["avatar"]+"' ></img>";
         document.getElementById(ptitle).innerHTML = data[j]["poiname"];
 
 

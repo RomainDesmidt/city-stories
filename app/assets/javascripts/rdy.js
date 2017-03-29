@@ -9,10 +9,10 @@ $(document).ready(function() {
         $('h4').removeClass("hidden-content");
         h4ToChange.siblings().addClass("hidden-content");
 
-        $('div.tab > div').removeClass("hidden-content");
-        divToChange.siblings().addClass("hidden-content");
-        // $('div.tab > div').attr('style', '');
-        // divToChange.siblings().attr('style', 'display: none;');
+        // $('div.tab > div').removeClass("hidden-content");
+        // divToChange.siblings().addClass("hidden-content");
+        $('div.tab > div').attr('style', '');
+        divToChange.siblings().attr('style', 'display: none;');
     });
 });
 
