@@ -8,7 +8,7 @@
             <div class="footer ">
               <div class="footer-user-change">
                 <i class="fa fa-angle-left btn-fa" aria-hidden="true"></i>
-                <%= image_tag "logo.png",  alt: "user", class: "avatar-small" %>
+                <%= @previous_journey_for_poi.avatar, class: "avatar-small" %>
               </div>
               <div class="footer-title-show">
               <p>Switch journey</p>
@@ -20,7 +20,7 @@
             </div>
         <div class="banner">
           <div>
-            <%= image_tag "logo.png",  alt: "user", class: "avatar-large" %>
+            <%= @next_journey_for_poi.avatar, class: "avatar-large" %>
           </div>
           <div class="banner-title">
 

@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   get 'testgmap', to: 'pages#test'
   get 'template', to: 'pages#template'
   get 'value', to: 'pages#value'
+  get 'welcome', to: 'pages#welcome'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

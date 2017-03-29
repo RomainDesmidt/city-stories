@@ -236,7 +236,7 @@ journey_4 = Journey.create!(
       name: "le chien",
       poi: chien_stupide,
       text: <<~EOF
-        Le bar: Il y aura encor de petits bars canaille
+        Le bar: Il y aura encore de petits bars canaille
         Avec des viandes d’Extême-Orient
         Pour abriter ce nouvel an.
 

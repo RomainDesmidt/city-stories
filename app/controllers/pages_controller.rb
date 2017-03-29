@@ -5,6 +5,9 @@ class PagesController < ApplicationController
     redirect_to journeys_path
   end
 
+  def welcome
+  end
+
   def test
   end
 
