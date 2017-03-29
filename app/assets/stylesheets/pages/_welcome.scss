@@ -15,18 +15,24 @@ video {
    opacity: .5;
 }
 
+
+
+
 #videointro {
+  text-align: center;
   font-weight:100;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0,0,0,0);
   color: white;
-  padding: 2rem;
-  width: 33%;
+  padding: 1rem;
+  width: 53%;
   margin:2rem;
   float: right;
   font-size: 1.2rem;
 }
 
-#videointro button {
+
+
+#videointro .button {
   display: block;
   width: 80%;
   padding: .4rem;
@@ -39,7 +45,7 @@ video {
   cursor: pointer;
   transition: .3s background;
 }
-#videointro button:hover {
+#videointro .button:hover {
    background: rgba(0,0,0,0.5);
 }
 
