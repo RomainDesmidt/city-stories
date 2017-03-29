@@ -1,5 +1,6 @@
 class PoisController < ApplicationController
   def show
+
     @poi         = POI.find(params[:id])
     @journey     = Journey.find(params[:journey_id])
     @journey_poi = @poi.journey_pois.find_by_journey_id(@journey.id)
@@ -22,6 +23,7 @@ class PoisController < ApplicationController
 
     @coordinates_hash = []
 
+
     @coordinates_array = []
     @journey.pois.each do |poi|
       latitude = poi.latitude
@@ -29,6 +31,7 @@ class PoisController < ApplicationController
       @coordinates_array << [latitude , longitude]
     end
     @coordinates_hash << @coordinates_array
+
   end
 
   def index

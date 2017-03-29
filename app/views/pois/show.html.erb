@@ -6,10 +6,12 @@
           <% if @poi.journeys.count != 1 %>
             <div class="footer ">
               <div class="footer-user-change">
+
                 <%= link_to journey_poi_path(@previous_journey_for_poi, @poi) do %>
                   <i class="fa fa-angle-left btn-fa" aria-hidden="true"></i>
                   <%= cl_image_tag @previous_journey_for_poi.user.avatar, class: "avatar-small" %>
                 <% end %>
+
               </div>
               <div class="footer-title-show">
               <p>Switch journey</p>
@@ -28,6 +30,7 @@
 
         <div class="banner">
           <div>
+
             <%= cl_image_tag @journey.user.avatar, class: "avatar" %>
           </div>
           <div class="banner-title">

@@ -232,6 +232,7 @@ journey_4 = Journey.create!(
       description: "J’aime trainer et observer les gens qui s’extasient devant l’éléphant et le carrousel. De temps en temps je me pause et je lis un livre. Et justement je suis en train de lire un passage de “20000 lieues sous les mers” de Jules Verne quand le capitaine némo fait une description des machines du nautilus. Je découvre que le carrousel pourrait correspondre à cette description.",
       poi: machine_de_l_ile,
       text: <<~EOF
+
         Je  fus surpris, tout  d’abord, de  l’odeur sui
         generis   qui   emplissait   ce   compartiment.   Le
         capitaine Nemo s’aperçut de mon impression.
