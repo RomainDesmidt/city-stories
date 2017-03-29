@@ -27,7 +27,8 @@
 .tabs-menu-index {
 
     display: flex;
-    justify-content: space-between;
+    //justify-content: center;
+    //align-items: center;
     align-items: center;
     width: 100%;
 }
@@ -35,7 +36,15 @@
 div.tabs-menu-index > div {
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+
+
+}
+div.tabs-menu-index > div > a {
 
 }
 
