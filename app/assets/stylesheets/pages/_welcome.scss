@@ -49,10 +49,10 @@ video {
    background: rgba(0,0,0,0.5);
 }
 
-@media screen and (max-width: 500px) {
-  div{width:70%;}
-}
-@media screen and (max-device-width: 800px) {
-  html { background: url("https://www.youtube.com/embed/rK-NrTkFa9c") #000 no-repeat center center fixed;}
-  #bgvid { display: none; }
-}
+// @media screen and (max-width: 500px) {
+//   div{width:70%;}
+// }
+// @media screen and (max-device-width: 800px) {
+//   html { background: url("https://www.youtube.com/embed/rK-NrTkFa9c") #000 no-repeat center center fixed;}
+//   #bgvid { display: none; }
+// }
