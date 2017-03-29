@@ -13,6 +13,7 @@
 .container-height-index {
 
   height: 100vh;
+  // background-color: $brand-color;
 
 }
 
@@ -21,7 +22,17 @@
  }
 
 .map-index-next {
-   height: 80vh;
+   height: 75vh;
+}
+
+.container-height-20vh {
+  height: 25vh;
+}
+
+.a-to-pad {
+  position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .tabs-menu-index {
@@ -33,6 +44,7 @@
     width: 100%;
 }
 
+
 div.tabs-menu-index > div {
   padding-left: 20px;
   padding-right: 20px;
@@ -41,6 +53,7 @@ div.tabs-menu-index > div {
   flex: 1 1 auto;
   display: flex;
   justify-content: center;
+  background-color: white;
 
 
 }
@@ -60,7 +73,9 @@ div.tabs-menu-index > div.current {
     background-color: #fff;
     margin-bottom: 20px;
     width: 100%;
-
+.a-100vh {
+  height: 100vh;
+}
 
 }
 
@@ -82,11 +97,19 @@ ul {
   list-style-type: none;
 }
 
+h4[id*="poi-title"] {
+  background-color: $brand-color;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
 
 div[id*="itab-"] {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  position: relative;
 }
 
 
@@ -110,3 +133,25 @@ a[title="Report errors in the road map or imagery to Google"] {
   display: flex;
 
 }
+
+.journeys-footer-index-i {
+   color: white;
+   text-align: center;
+
+   width: 100%;
+
+}
+
+.journeys-footer-title-index {
+  margin: 0;
+  padding: 0 0 0 0px;
+  h3 {
+  margin: 0;
+  padding: 0;
+  }
+  p {
+  margin: 0;
+  padding: 0;
+  }
+}
+
