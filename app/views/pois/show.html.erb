@@ -80,7 +80,7 @@
 
             <div class="media">
             <%= cl_image_tag @journey_poi.photo, class: "media-fix-width" %>
-            <div class="media-fix-width"><p><%= @journey_poi.text %></p></div>
+            <div class="media-fix-width poesie"><%= simple_format @journey_poi.text %></div>
             <div class="media-fix-width"><%= @journey_poi.video %></div>
             <div class="media-fix-width"><%= @journey_poi.sound %></div>
             </div>

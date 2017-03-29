@@ -107,8 +107,7 @@ journey_1 = Journey.create!(
         Toi qui n’arrive pas à oublier celui qui essaye de t’oublier.
         Regarde donc vers le ciel et écoute les étoiles te murmurer :
 
-        « Camille, Camille, Camille,
-        La vie ne devrait exister que par l’amour.
+        « La vie ne devrait exister que par l’amour.
         Alors quitte ce monde et rejoins nous pour toujours
         Dans les citadelles de la pensée, là où on distille
         Le combat d’une vie en air pur.
