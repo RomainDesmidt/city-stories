@@ -27,7 +27,8 @@ class PagesController < ApplicationController
         contenu = journey.journey_pois.where(poi_id: poi_id).first
         @user = {
           journeyid: journey.id,
-          poiid: contenu.id,
+          #poiid: contenu.id,
+          poiid: poi_id,
           avatar: journey.user.avatar.url,
           journeyname: journey.name,
           poiname: contenu.name,

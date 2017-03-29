@@ -1,14 +1,47 @@
-<style type="text/css">
-body {
-    overflow:hidden;
-}
-</style>
-<div class="container-full">
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Cities Stories - Visitez une ville à travers des histoires singulières </title>
+
+<meta name="description" content="Racontez vous à travers la création d&#39;un parcours dans une ville sous forme de textes vidéos, images, sons. Vivez votre ville où un territoire d&#39;une manière différente et à travers les yeux de quelqu&#39;un d&#39;autre. ">
+
+<!-- Facebook Open Graph data -->
+<meta property="og:title" content="Cities Stories - Visitez une ville à travers des histoires singulières " />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:3000/journeys" />
+<meta property="og:image" content="http://localhost:3000/images/cover.png" />
+<meta property="og:description" content="Racontez vous à travers la création d&#39;un parcours dans une ville sous forme de textes vidéos, images, sons. Vivez votre ville où un territoire d&#39;une manière différente et à travers les yeux de quelqu&#39;un d&#39;autre. " />
+<meta property="og:site_name" content="Cities Stories - Visitez une ville à travers des histoires singulières " />
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@NantesStories">
+<meta name="twitter:title" content="Cities Stories - Visitez une ville à travers des histoires singulières ">
+<meta name="twitter:description" content="Racontez vous à travers la création d&#39;un parcours dans une ville sous forme de textes vidéos, images, sons. Vivez votre ville où un territoire d&#39;une manière différente et à travers les yeux de quelqu&#39;un d&#39;autre. ">
+<meta name="twitter:creator" content="@NantesStories">
+<meta name="twitter:image:src" content="http://localhost:3000/images/cover.png">
+
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="5OuwXt5ttPtkQs4RE42NhW9IfLOG9ATjdHuHfLC+k1Koa1XRWdZUbhQpARbe5831yZywrX+Alwqk9wmSnI6JiQ==" />
+    <meta name="action-cable-url" content="/cable" />
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon-620ae91a089a0a4c96de8c2818c174ad3724251511be5d18417e19991f21dc23.ico" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" media="all" href="/assets/application-eb6d36499a5ae2296f0bac6bf9085b36fc44ab9cd8639705524714d19764f476.css" />
+    <link href="https://fonts.googleapis.com/css?family=Abel|Fjalla+One|Jim+Nightshade" rel="stylesheet">
+  </head>
+  <body>
+   <!--   render 'shared/navbar'  -->
+    
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7_D8O-4q83V8_-d-6aSdbvb6sVeXdnYc"></script>
+    <div class="container-full">
   <div class="row-no-padding">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
-      <div class="container-height-index">
-
-        <div class="map-index-start" id="map" >
+      <div class="container-height">
+        <div class="map" id="map" style="z-index: 99;">
         </div>
         <div class="journeys-footer ">
           <div class="journeys-footer-title">
@@ -19,33 +52,34 @@ body {
           </div>
         </div>
         <div class="hidden-content" id="tabs-container">
-          <div class="tabs-menu-index">
-            <div class="current">
-              <a href="#tab-1" class="x" id="tab-1">
-                <img id="img-1" class="avatar" src=""></img>
-              </a>
-            </div>
-            <div>
-              <a href="#tab-2" class="y" id="tab-2">
-                <img id="img-2" class="avatar" src=""></img>
-              </a>
-            </div>
-            <div>
-              <a href="#tab-3" class="z" id="tab-3">
-                <img id="img-3" class="avatar" src=""></img>
-              </a>
-            </div>
-            <div>
-              <a href="#tab-4" class="w" id="tab-4">
-                <img id="img-4" class="avatar" src=""></img>
-              </a>
-            </div>
+          <ul class="tabs-menu list-inline">
+              <li class="current">
+                  <a href="#tab-1" class="x" id="tab-1">
+                  <img id="img-1" class="avatar" src=""></img>
+                  </a>
+              </li>
+              <li>
+                  <a href="#tab-2" class="y" id="tab-2">
+                  <img id="img-2" class="avatar" src=""></img>
+                  </a>
+              </li>
+              <li>
+                  <a href="#tab-3" class="z" id="tab-3">
+                  <img id="img-3" class="avatar" src=""></img>
+                  </a>
+              </li>
+              <li>
+                  <a href="#tab-4" class="w" id="tab-4">
+                  <img id="img-4" class="avatar" src=""></img>
+                  </a>
+              </li>
+            </ul>
           </div>
           <div class="tab">
-            <div id="itab-1" class="x" ></div>
-            <div id="itab-2" class="y hidden-content" ></div>
-            <div id="itab-3" class="z hidden-content" ></div>
-            <div id="itab-4" class="w hidden-content" ></div>
+            <div id="itab-1" class="x" style=""></div>
+            <div id="itab-2" class="y hidden-content" style="display: none;"></div>
+            <div id="itab-3" class="z hidden-content" style="display: none;"></div>
+            <div id="itab-4" class="w hidden-content" style="display: none;"></div>
           </div>
         </div>
       </div>
@@ -344,10 +378,10 @@ function getCoordinatesonClick() {
 };
 
 
-<% color = ['#E59500', '#F44336', '#E5DADA', '#52DEE5'] %>
-<% @coordinates_hash.each_with_index do |coordinate,i| %>
-createParcours(<%= @coordinates_hash[i] %>, '<%= color[i] %>');
-<% end %>
+createParcours([[47.216225, -1.549492], [47.226925, -1.55429], [47.220081, -1.555241], [47.216491, -1.551437], [47.222902, -1.552928]], '#E59500');
+createParcours([[47.213304, -1.559011], [47.217674, -1.541814], [47.222902, -1.552928], [47.195252, -1.581603], [47.226925, -1.55429]], '#F44336');
+createParcours([[47.218232, -1.550893], [47.19982, -1.574387], [47.223744, -1.581836], [47.223311, -1.567611], [47.226925, -1.55429]], '#E5DADA');
+createParcours([[47.218232, -1.550893], [47.242265, -1.547478], [47.245819, -1.560954], [47.233968, -1.535798], [47.216491, -1.551437], [47.226925, -1.55429]], '#52DEE5');
 
 
 
@@ -359,18 +393,6 @@ all_markers[i].addListener('click', function() {
     success: function(data) {
 
       $('#tabs-container').removeClass('hidden-content');
-      if ( $('#map').attr('class') == 'map-index-start' ) {
-        $('#map').removeClass('map-index-start');
-        $('#map').addClass('map-index-next');
-      };
-      var currentDiv = $('div.tabs-menu-index > div:first-child');
-      currentDiv.addClass('current');
-      currentDiv.siblings().removeClass('current');
-      $('div.journeys-footer-title > h4').removeClass("hidden-content");
-      $('div.journeys-footer-title > h4:first-child').siblings().addClass("hidden-content");
-      $('div.tab > div').removeClass("hidden-content");
-      $('div.tab > div:first-child').addClass("hidden-content");
-
       var length = data.length;
       if (data.length > 4) {
         length = 4;
@@ -399,7 +421,7 @@ all_markers[i].addListener('click', function() {
 
         var toAddToDiv = "<h4>"+ data[j]["journeyname"];
 
-        toAddToDiv +="</h4>"+" "+"<h4>"+ "<a class='a-to-pad' href='/journeys/"+data[j]["journeyid"]+"/pois/"+data[j]["poiid"]+"'>ICI</a></h4><h4>"
+        toAddToDiv +="</h4>"+" "+"<span>"+ "<a class='a-to-pad' href='/journeys/"+data[j]["journeyid"]+"/pois/"+data[j]["poiid"]+"'>ICI</a>"
         if (data[j]["poiphoto"]!= null) {
           toAddToDiv += " "+ "<i class='fa fa-camera btn-fa' aria-hidden='true'></i>";
 
@@ -417,7 +439,7 @@ all_markers[i].addListener('click', function() {
 
         };
 
-        document.getElementById(ititle).innerHTML = toAddToDiv +"</h4>";
+        document.getElementById(ititle).innerHTML = toAddToDiv +"</span>";
 
       }
 
@@ -434,3 +456,9 @@ all_markers[i].addListener('click', function() {
 
 
 </script>
+
+
+    <script src="/assets/application-b0f89ac03cefcbdc99de91380bbcb3f60bbfaa3c8c9dc9eca7470708333302ae.js"></script>
+    
+  </body>
+</html>
