@@ -1,5 +1,5 @@
 <div class="containexer-full">
-  <div class="row">
+  <div class="row-no-padding">
       <div class="col-xs-12 col-md-6 col-md-offset-3">
         <div class="container-height">
 
@@ -28,7 +28,7 @@
 
         <div class="banner">
           <div>
-            <%= cl_image_tag @journey.user.avatar %>
+            <%= cl_image_tag @journey.user.avatar, class: "avatar" %>
           </div>
           <div class="banner-title">
 
@@ -80,7 +80,7 @@
 
             <div class="media">
             <%= cl_image_tag @journey_poi.photo, class: "media-fix-width" %>
-            <div class="media-fix-width"><%= @journey_poi.text %></div>
+            <div class="media-fix-width"><p><%= @journey_poi.text %></p></div>
             <div class="media-fix-width"><%= @journey_poi.video %></div>
             <div class="media-fix-width"><%= @journey_poi.sound %></div>
             </div>
