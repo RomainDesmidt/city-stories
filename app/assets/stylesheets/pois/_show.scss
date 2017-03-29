@@ -3,8 +3,18 @@
   width: 100%;
   height: 30vh;
 }
+
+.map-show {
+  width: 100%;
+  height: 40vh;
+}
+
+.media-fix-width {
+  width: 100%;
+}
+
 .body-contenu-show {
-  height: 50vh;
+  max-height: 50vh;
   overflow: scroll;
   padding: 20px 20px 20px 20px;
   text-align: left;
@@ -78,3 +88,8 @@
   padding: 0;
   }
 }
+
+.fa-white {
+  color: white;
+}
+

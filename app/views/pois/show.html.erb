@@ -1,50 +1,66 @@
-
-
-
-<div class="container-full">
-  <div class="row">
+<div class="containexer-full">
+  <div class="row-no-padding">
       <div class="col-xs-12 col-md-6 col-md-offset-3">
         <div class="container-height">
+
+          <% if @poi.journeys.count != 1 %>
             <div class="footer ">
               <div class="footer-user-change">
-                <i class="fa fa-angle-left btn-fa" aria-hidden="true"></i>
-                <%= @previous_journey_for_poi.avatar, class: "avatar-small" %>
+
+                <%= link_to journey_poi_path(@previous_journey_for_poi, @poi) do %>
+                  <i class="fa fa-angle-left btn-fa" aria-hidden="true"></i>
+                  <%= cl_image_tag @previous_journey_for_poi.user.avatar, class: "avatar-small" %>
+                <% end %>
+
               </div>
               <div class="footer-title-show">
               <p>Switch journey</p>
               </div>
               <div class="footer-user-change">
-                <%= image_tag "logo.png",  alt: "user", class: "avatar-small" %>
-                <i class="fa fa-angle-right btn-fa" aria-hidden="true"></i>
+                <%= link_to journey_poi_path(@next_journey_for_poi, @poi) do %>
+
+                  <%= cl_image_tag @next_journey_for_poi.user.avatar, class: "avatar-small" %>
+                  <i class="fa fa-angle-right btn-fa" aria-hidden="true"></i>
+                <% end %>
               </div>
             </div>
+          <% end %>
+
+
+
         <div class="banner">
           <div>
-            <%= @next_journey_for_poi.avatar, class: "avatar-large" %>
+
+            <%= cl_image_tag @journey.user.avatar, class: "avatar" %>
           </div>
           <div class="banner-title">
 
 
             <h3> <%= @journey.name %> </h3>
 
-            <p>par <%= current_user.pseudo %> </p>
+            <p>par <%= @journey.user.pseudo %> </p>
 
           </div>
         </div>
-          <div class="map" id="map">
-          </div>
+        <div class="map-show" id="map">
+        </div>
 
         <div class="footer-show ">
           <div class="footer-user-change">
-            <i class="fa fa-angle-left btn-fa" aria-hidden="true"></i>
+            <%= link_to journey_poi_path(@journey, @next_poi_for_journey) do %>
+              <i class="fa fa-angle-left btn-fa fa-white" aria-hidden="true"></i>
+            <% end %>
           </div>
 
           <div class="footer-title">
-          <h4><%= @poi.name %></h4>
+          <h4><%= @journey_poi.name%></h4>
           </div>
 
           <div class="footer-user-change">
-            <i class="fa fa-angle-right btn-fa" aria-hidden="true"></i>
+            <%= link_to journey_poi_path(@journey, @next_poi_for_journey) do %>
+            <i class="fa fa-angle-right btn-fa fa-white" aria-hidden="true"></i>
+            <% end %>
+
           </div>
         </div>
 
@@ -57,7 +73,7 @@
 
           <div class="body-description">
 
-            <p><%= @poi.description %></p>
+            <p><%= @journey_poi.description %></p>
 
           </div>
 
@@ -65,11 +81,11 @@
 
           <div class="body-media">
 
-            <div class="img-responsive-custom">
-            <%= cl_image_tag @poi.photo %>
-            <%= @poi.text %>
-            <%= @poi.video %>
-            <%= @poi.sound %>
+            <div class="media">
+            <%= cl_image_tag @journey_poi.photo, class: "media-fix-width" %>
+            <div class="media-fix-width"><p><%= @journey_poi.text %></p></div>
+            <div class="media-fix-width"><%= @journey_poi.video %></div>
+            <div class="media-fix-width"><%= @journey_poi.sound %></div>
             </div>
           </div>
          </div>
@@ -79,3 +95,321 @@
 
 </div>
 
+<script type="text/javascript">
+
+
+var styleOut =
+[  {
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape.man_made",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#0f1416"
+      }
+    ]
+  },
+  {
+    "featureType": "landscape.natural",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#0f1416"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#0f1416"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.medical",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#0f1416"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#0f1416"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.place_of_worship",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#0f1416"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.school",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#0f1416"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.sports_complex",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#0f1416"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#0f1416"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#2b383e"
+      },
+      {
+        "weight": 0.5
+      }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#0f1416"
+      }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#00a5b7"
+      },
+      {
+        "weight": 2
+      }
+    ]
+  }
+];
+
+// La Cordee Nantes Lat Lng
+var centerMap = new google.maps.LatLng(<%= @poi.latitude %>, <%= @poi.longitude %>);
+var myOptions = {
+  zoom: 14,
+  center: centerMap,
+  scrollwheel: false,
+  mapTypeId: google.maps.MapTypeId.ROADMAP,
+  styles: styleOut,
+  mapTypeControl: false,
+  streetViewControl: false,
+  zoomControl: false
+};
+var map = new google.maps.Map(document.getElementById('map'), myOptions);
+
+
+// http://freeiconbox.com/icon/256/34338.png
+// http://maps.google.com/mapfiles/kml/shapes/flag.png
+// http://maps.google.com/mapfiles/kml/shapes/arrow.png
+// http://www.freeiconspng.com/uploads/illuminati-icon-png-29.png
+// mapx50.png
+// -----------------------------------------------------------
+var ico = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
+var titre = "La Cordee";
+var blue = '#0000FF';
+var green = '#00FF00';
+var red = '#FF0000';
+var yellow = '#F0F000';
+var purple = '#FF1AFF';
+var orange = '#ff6600';
+var all_markers = {};
+var counter = 0;
+
+
+// -----------------------------------------------------------
+function marquePoi(lat,lng,ico,titre, visibility) {
+  var maLatLng = new google.maps.LatLng(lat, lng);
+  if (lat == <%= @poi.latitude %>) {
+    ico = "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
+  };
+  var marqueur = new google.maps.Marker({
+  position: maLatLng,
+  map: map,
+  title: titre,
+  icon: ico,
+  visible: visibility
+  });
+  // marker.addListener('click', function() {
+  //         console.log("hi")
+  // });
+  all_markers[counter] = marqueur
+  counter++
+  return marqueur;
+};
+
+function addToCoordinatesObjectArray(coordinatesArray, lat, lng){
+  var newLatLng = new google.maps.LatLng(lat, lng)
+  coordinatesArray.push(newLatLng);
+};
+
+function createParcours(hashDanslArray, color) {
+  var coordinatesArray = []
+    for(var i = 0; i < hashDanslArray.length; i++) {
+      var lat = hashDanslArray[i][0];
+      var lng = hashDanslArray[i][1];
+      var total = lat+" "+lng
+      addToCoordinatesObjectArray(coordinatesArray, lat, lng);
+      marquePoi(lat,lng, ico, total, true)
+    }
+  var parcoursPath = new google.maps.Polyline({
+    path: coordinatesArray,
+    geodesic: true,
+    strokeColor: color,
+    strokeOpacity: 1,
+    strokeWeight: 6,
+  });
+  parcoursPath.setMap(map);
+};
+
+function getCoordinatesonClick() {
+  var infowindow = null;
+  var marqueur = null;
+  map.addListener("click", function (event) {
+    if (infowindow) {
+      infowindow.close();
+    }
+    var lat = event.latLng.lat();
+    var lng = event.latLng.lng();
+    infowindow = new google.maps.InfoWindow({
+      content: lat + ', ' + lng
+    });
+    marqueur = marquePoi(lat, lng, ico, "", false)
+    infowindow.open(map, marqueur);
+  });
+};
+
+// -----------------------------------------------------------
+
+// < color = ['#E59500', '#F44336', '#E5DADA', '#52DEE5'] %>
+// < @coordinates_hash.each_with_index do |coordinate,i| %>
+// createParcours(<= coordinate %>, '<= color[i] %>');
+// < end %>
+
+
+  <% color = ['#E59500', '#F44336', '#E5DADA', '#52DEE5'] %>
+
+  createParcours(<%= @coordinates_hash[0] %>, '<%= color[2] %>');
+  // marquePoi(<%= @poi.latitude %>, <%= @poi.longitude %>, 'http://maps.google.com/mapfiles/ms/icons/red-dot.png' ,'current marker', true);
+
+</script>
