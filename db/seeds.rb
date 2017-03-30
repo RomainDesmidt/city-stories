@@ -5,7 +5,6 @@ Journey.destroy_all
 User.destroy_all
 
 puts "Creating users..."
-url = "http://lorempixel.com/50/50/people/"
 victoire = User.create!(
   pseudo: "Victoire",
   email: "victoire@gmail.com",
@@ -173,7 +172,7 @@ journey_2 = Journey.create!(
     ),
 
     JourneyPOI.new(
-      name: "Île de versaille",
+      name: "Île de versailles",
       description: "Avec mon petit copain nous aimons se balader le dimanche sur l’île de Versailles. C’est un petit coin de paradis à l’abri du bruit de la ville, parfait pour se ressourcer.",
       poi: ile_de_versaille,
       photo: File.new(Rails.root.join("db/fixtures/images/versailles.jpg"))
@@ -262,7 +261,7 @@ journey_4 = Journey.create!(
         EOF
     ),
     JourneyPOI.new(
-      name: "Jardin_confluent",
+      name: "Jardin confluent",
       description: "Un besoin de se poser devant la faune marécageuse du jardin du confluent. Tout est vert dans un monde de bitume. Ça fait du bien.",
       poi: jardin_confluent,
       photo: File.new(Rails.root.join("db/fixtures/images/jardinconfluent.jpg"))
