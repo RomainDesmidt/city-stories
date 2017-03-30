@@ -1,8 +1,8 @@
-<!-- <style type="text/css">
+<style type="text/css">
 body {
     overflow:hidden;
 }
-</style> -->
+</style>
 
 <div class="container-full a-100vh">
   <div class="row-no-padding">
@@ -12,7 +12,7 @@ body {
         <div class="map-index-start" id="map" >
         </div>
 
-        <!-- <div class="container-height-20vh hidden-content"> -->
+        <div class="container-height-20vh hidden-content">
           <div class="journeys-footer-index-i">
             <div class="journeys-footer-title-index">
               <h4 class="x" id="poi-title1">  </h4>
@@ -52,7 +52,7 @@ body {
             </div>
           </div>
 
-        <!-- </div> -->
+        </div>
       </div>
     </div>
   </div>
@@ -281,7 +281,7 @@ var myOptions = {
   zoomControl: false
 };
 var map = new google.maps.Map(document.getElementById('map'), myOptions);
-var ico = "dollarx50.png";
+var ico = "<%= image_path "marqueur.svg" %>";
 var titre = "La Cordee";
 var blue = '#0000FF';
 var green = '#00FF00';
@@ -300,7 +300,8 @@ function marquePoi(lat,lng,ico,titre, visibility) {
   position: maLatLng,
   map: map,
   title: titre,
-  visible: visibility
+  visible: visibility,
+  icon: ico
   });
   all_markers[counter] = marqueur;
   counter++;
@@ -408,25 +409,25 @@ all_markers[i].addListener('click', function() {
         document.getElementById(ptitle).innerHTML = data[j]["poiname"];
 
 
-        var toAddToDiv = "<h4 class='a-to-left text-center color-white itab-element'>"+ data[j]["journeyname"]+"     "+"<span class='a-50-center color-white itab-element'>";
+        var toAddToDiv = "<h4 class='a-to-left text-center color-white itab-element'>"+ data[j]["journeyname"]+"&nbsp;&nbsp;"+"<span class='a-50-center color-white itab-element'>";
 
         if (data[j]["poiphoto"]!= null) {
-          toAddToDiv += "<i class='fa fa-camera btn-fa' aria-hidden='true'></i>";
+          toAddToDiv += "<i class='fa fa-camera btn-fa font-size-small' aria-hidden='true'></i>";
 
         };
         if (data[j]["poivideo"]!= null) {
-          toAddToDiv += " "+ "<i class='fa fa-youtube-play btn-fa' aria-hidden='true'></i>";
+          toAddToDiv += " "+ "<i class='fa fa-youtube-play btn-fa font-size-small' aria-hidden='true'></i>";
 
         };
         if (data[j]["poisound"]!= null) {
-          toAddToDiv += " "+ "<i class='fa fa-microphone btn-fa' aria-hidden='true'></i>";
+          toAddToDiv += " "+ "<i class='fa fa-microphone btn-fa font-size-small' aria-hidden='true'></i>";
 
         };
         if (data[j]["poitext"]!= null) {
-          toAddToDiv += " "+ "<i class='fa fa-font btn-fa' aria-hidden='true'></i>";
+          toAddToDiv += " "+ "<i class='fa fa-font btn-fa font-size-small' aria-hidden='true'></i>";
 
         };
-        toAddToDiv +="</span></h4>"+" "+"<span class='text-center itab-element color-white '><a class='a-to-right' href='/journeys/"+data[j]["journeyid"]+"/pois/"+data[j]["poiid"]+"'>Decouvrir ce parcourswww<i class='fa color-white fa-arrow-right btn-fa' aria-hidden='true'></i></a></span>"
+        toAddToDiv +="</span></h4>"+" "+"<span class='text-center itab-element color-white '><a class='a-to-right' href='/journeys/"+data[j]["journeyid"]+"/pois/"+data[j]["poiid"]+"'>Découverte &nbsp; <i class='fa color-white fa-arrow-right btn-fa' aria-hidden='true'></i></a></span>"
 
         document.getElementById(ititle).innerHTML = toAddToDiv +"</h4>";
 
