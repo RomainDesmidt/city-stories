@@ -18,29 +18,18 @@
     src="https://www.youtube.com/embed/X-87DNw5n7w?autoplay=1&controls=0&showinfo=0&autohide=1&frameborder=0&allowfullscreen=0&loop=1&playlist=X-87DNw5n7w">
   </iframe>
 </div>
-<div id="videointro">
+  <div id="welcome-wrapper">
+    <div class="container-welcome text-center">
+      <div class="container-content">
+        <h1>City Stories</h1>
+        <%= cl_image_tag("logo_citystories-03-02_al7idf.png", :width=>100, :crop=>"scale")%>
+        <h4> Faites d'une ville votre page blanche. <br> Parcourez la selon le regard et les yeux d'un autre.</h4>
+      </div>
 
+      <div class="container-content">
+        <h4> Racontez vous et racontez nous votre ville  à travers vos parcours.</h4>
+        <%= link_to "Entrer", journeys_path, class: "button"%>
+      </div>
+    </div>
+  </div>
 
-     <h1>City Stories</h1>
-     <%= cl_image_tag("logo_citystories-03-02_al7idf.png", :width=>25, :crop=>"scale")%>
-
-
-<br>
-  <h5> Faites d'une ville votre page blanche. Parcourez la selon le regard et les yeux d'un autre.
-  </h5>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
- <h5> Racontez vous et racontez nous votre ville  à travers vos parcours.</h5>
-  <%= link_to "Entrer", journeys_path, class: "button"%>
-
-  <br>
-
-</div>
