@@ -18,19 +18,18 @@ video {
 
 
 
-#videointro {
-  text-align: center;
-  font-weight:100;
-  background: rgba(0,0,0,0);
-  color: white;
-  padding: 2rem;
-  width: 98%;
-  margin:0rem;
-  float: right;
-  font-size: 1.2rem;
-}
 
-
+// #videointro {
+//   text-align: center;
+//   font-weight:100;
+//   background: rgba(0,0,0,0);
+//   color: white;
+//   padding: 1rem;
+//   width: 53%;
+//   margin:2rem;
+//   float: right;
+//   font-size: 1.2rem;
+// }
 
 #videointro .button {
   display: block;
@@ -56,3 +55,22 @@ video {
 //   html { background: url("https://www.youtube.com/embed/rK-NrTkFa9c") #000 no-repeat center center fixed;}
 //   #bgvid { display: none; }
 // }
+
+
+.container-welcome {
+
+ position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: rgba(255,255,255,0);
+  color: white;
+  width: 100%;
+}
+
+#welcome-wrapper {
+  position: absolute;
+  width: 100vw;
+}
