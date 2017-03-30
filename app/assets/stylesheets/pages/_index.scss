@@ -42,12 +42,16 @@
     //transform: translateX(-50%);
 }
 
+.color-white {
+  color: white;
+}
+
 .tab {
+    background-color: $brand-color;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 20px;
     padding-left: 20px;
-    background-color: #fff;
     margin-bottom: 0px;
     width: 100%;
     display: flex;
@@ -63,8 +67,9 @@ div[id*="itab-"] {
   flex-direction: row;
   justify-content: space-between;
   flex: 1 1 auto;
-  // position: relative;
+  position: relative;
 }
+
 
 .itab-element {
   flex: 1 1 auto;
@@ -119,6 +124,8 @@ div.tabs-menu-index > div > a {
 
 div.tabs-menu-index > div.current {
   background-color: $brand-color;
+  //padding: 0px;
+  //margin: 0px;
 }
 
 .tabs-menu .current a {
