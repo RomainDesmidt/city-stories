@@ -182,7 +182,7 @@ journey_2 = Journey.create!(
       name: "Parc de procé",
       description: "Grosse sieste sur la pelouse du parc de Procé. Nous avons été réveillés par le son de la nature, le chant des oiseaux et le bruit de l’eau. C’était vraiment agréable de se déconnecté de temps en temps.",
       poi: parc_de_proce,
-      sound: "https://soundcloud.com/nature-sounds/nature-sounds"
+      sound: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/250167020&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"
     )
   ]
 )
@@ -217,7 +217,7 @@ journey_3 = Journey.create!(
       description: "Nous avons tant  entendu parler de ces “machines de lîle que ce sont pour elles que nous avons décidé de visiter Nantes. Nous avons nagé en pleine science-fiction de l’univers Jules verniens. Je n’oublierais jamais l’éléphant et le dragon. Quelle histoire !",
       poi: machine_de_l_ile,
       # remote_photo_url: "http://img.20mn.fr/IcMIOlrmTtybOfCvdl8idw/2048x1536-fit_pataugeoire-parc-proce-nantes.jpg"
-      video: "https://www.youtube.com/watch?v=DlzG1X9vq8E",
+      video: "https://www.youtube.com/embed/DlzG1X9vq8E",
     )
   ]
 )
