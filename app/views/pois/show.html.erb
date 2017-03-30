@@ -84,9 +84,15 @@
 
             <div class="media">
             <%= cl_image_tag @journey_poi.photo, class: "media-fix-width" %>
+            <% unless @journey_poi.text.nil? %>
             <div class="media-fix-width poesie"><%= simple_format @journey_poi.text %></div>
-            <div class="media-fix-width"><%= @journey_poi.video %></div>
-            <div class="media-fix-width"><%= @journey_poi.sound %></div>
+            <% end %>
+            <% unless @journey_poi.video.nil? %>
+            <div class="media-fix-width"><iframe width="560" height="315" src="<%= @journey_poi.video %>" frameborder="0"></iframe></div>
+            <% end %>
+            <% unless @journey_poi.sound.nil? %>
+            <div class="media-fix-width"><iframe width=“100%” height=“450" scrolling=“no” frameborder=“no” src="<%= @journey_poi.sound %>" ></iframe></div>
+            <% end %>
             </div>
           </div>
          </div>
