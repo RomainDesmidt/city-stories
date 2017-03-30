@@ -1,8 +1,8 @@
-<!-- <style type="text/css">
+<style type="text/css">
 body {
     overflow:hidden;
 }
-</style> -->
+</style>
 
 <div class="container-full a-100vh">
   <div class="row-no-padding">
@@ -12,7 +12,7 @@ body {
         <div class="map-index-start" id="map" >
         </div>
 
-        <!-- <div class="container-height-20vh hidden-content"> -->
+        <div class="container-height-20vh hidden-content">
           <div class="journeys-footer-index-i">
             <div class="journeys-footer-title-index">
               <h4 class="x" id="poi-title1">  </h4>
@@ -52,7 +52,7 @@ body {
             </div>
           </div>
 
-        <!-- </div> -->
+        </div>
       </div>
     </div>
   </div>
@@ -281,17 +281,51 @@ var myOptions = {
   zoomControl: false
 };
 var map = new google.maps.Map(document.getElementById('map'), myOptions);
-var ico = "dollarx50.png";
+var ico = "<%= image_path "marqueur.svg" %>";
+var marker_orange = "<%= image_path "marker_orange.png" %>";
+var marker_red = "<%= image_path "marker_red.png" %>";
+var marker_yellow = "<%= image_path "marker_yellow.png" %>";
+var marker_green = "<%= image_path "marker_green.png" %>";
+var marker_passiv = "<%= image_path "marker_passiv.png" %>";
 var titre = "La Cordee";
 var blue = '#0000FF';
 var green = '#00FF00';
 var red = '#FF0000';
 var yellow = '#F0F000';
 var purple = '#FF1AFF';
-var orange = '#ff6600';
+var orange = '#ff8b00';
 var all_markers = {};
 var counter = 0;
+<% color = ['#ff8b00', '#CD3131', '#d59bf6', '#ffe98a'] %>
 
+// var icon= {
+// url: icoGreen
+// scaledSize: new google.maps.Size(25, 25),
+// strokeColor: '#ff0000',
+// optimized: false
+
+// };
+
+function pinSymbol(color) {
+  return {
+        path: 'M 9.732 -0.001 c -5.375 0 -9.729 4.356 -9.732 9.73 h 0.004 c 0.025 2.399 1.686 6.169 3.576 9.84 l 4.166 7.42 c 0.852 1.41 1.418 2.301 1.42 2.305 l 0.564 0.885 l 0.564 -0.885 c 0.002 -0.004 0.57 -0.895 1.424 -2.305 l 4.164 -7.418 c 1.889 -3.67 3.547 -7.44 3.578 -9.842 c 0 -5.374 -4.353 -9.73 -9.728 -9.73 z M 9.73 14.037 c -2.596 0 -4.697 -2.104 -4.697 -4.697 s 2.101 -4.697 4.697 -4.697 c 2.594 0 4.697 2.104 4.697 4.697 s -2.103 4.697 -4.697 4.697 z',
+
+        fillColor: color,
+        fillOpacity: 1,
+        scaledSize: new google.maps.Size(25, 25),
+        anchor: new google.maps.Point(9, 30),
+        strokeWeight: 0,
+        scale: 1,
+
+  }
+};
+
+
+//['#E59500', '#F44336', '#E5DADA', '#52DEE5']
+
+var icoGreen = pinSymbol('#E6E7E8');
+
+// var marker =;
 
 // -----------------------------------------------------------
 function marquePoi(lat,lng,ico,titre, visibility) {
@@ -300,7 +334,8 @@ function marquePoi(lat,lng,ico,titre, visibility) {
   position: maLatLng,
   map: map,
   title: titre,
-  visible: visibility
+  visible: visibility,
+  icon: ico
   });
   all_markers[counter] = marqueur;
   counter++;
@@ -319,7 +354,7 @@ function createParcours(hashDanslArray, color) {
       var lng = hashDanslArray[i][1];
       var total = lat+" "+lng
       addToCoordinatesObjectArray(coordinatesArray, lat, lng);
-      marquePoi(lat,lng, ico, total, true)
+      marquePoi(lat,lng, icoGreen, total, true)
     }
   var parcoursPath = new google.maps.Polyline({
     path: coordinatesArray,
@@ -349,7 +384,7 @@ function getCoordinatesonClick() {
 };
 
 
-<% color = ['#E59500', '#F44336', '#E5DADA', '#52DEE5'] %>
+
 <% @coordinates_hash.each_with_index do |coordinate,i| %>
 createParcours(<%= @coordinates_hash[i] %>, '<%= color[i] %>');
 <% end %>
@@ -408,25 +443,25 @@ all_markers[i].addListener('click', function() {
         document.getElementById(ptitle).innerHTML = data[j]["poiname"];
 
 
-        var toAddToDiv = "<h4 class='a-to-left text-center color-white itab-element'>"+ data[j]["journeyname"]+"     "+"<span class='a-50-center color-white itab-element'>";
+        var toAddToDiv = "<h4 class='a-to-left text-center color-white itab-element'>"+ data[j]["journeyname"]+"&nbsp;&nbsp;"+"<span class='a-50-center color-white itab-element'>";
 
         if (data[j]["poiphoto"]!= null) {
-          toAddToDiv += "<i class='fa fa-camera btn-fa' aria-hidden='true'></i>";
+          toAddToDiv += "<i class='fa fa-camera btn-fa font-size-small' aria-hidden='true'></i>";
 
         };
         if (data[j]["poivideo"]!= null) {
-          toAddToDiv += " "+ "<i class='fa fa-youtube-play btn-fa' aria-hidden='true'></i>";
+          toAddToDiv += " "+ "<i class='fa fa-youtube-play btn-fa font-size-small' aria-hidden='true'></i>";
 
         };
         if (data[j]["poisound"]!= null) {
-          toAddToDiv += " "+ "<i class='fa fa-microphone btn-fa' aria-hidden='true'></i>";
+          toAddToDiv += " "+ "<i class='fa fa-microphone btn-fa font-size-small' aria-hidden='true'></i>";
 
         };
         if (data[j]["poitext"]!= null) {
-          toAddToDiv += " "+ "<i class='fa fa-font btn-fa' aria-hidden='true'></i>";
+          toAddToDiv += " "+ "<i class='fa fa-font btn-fa font-size-small' aria-hidden='true'></i>";
 
         };
-        toAddToDiv +="</span></h4>"+" "+"<span class='text-center itab-element color-white '><a class='a-to-right' href='/journeys/"+data[j]["journeyid"]+"/pois/"+data[j]["poiid"]+"'>Decouvrir ce parcourswww<i class='fa color-white fa-arrow-right btn-fa' aria-hidden='true'></i></a></span>"
+        toAddToDiv +="</span></h4>"+" "+"<span class='text-center itab-element color-white '><a class='a-to-right' href='/journeys/"+data[j]["journeyid"]+"/pois/"+data[j]["poiid"]+"'>Découverte &nbsp; <i class='fa color-white fa-arrow-right btn-fa' aria-hidden='true'></i></a></span>"
 
         document.getElementById(ititle).innerHTML = toAddToDiv +"</h4>";
 

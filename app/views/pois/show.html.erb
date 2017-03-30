@@ -14,7 +14,7 @@
 
               </div>
               <div class="footer-title-show">
-              <p>Switch journey</p>
+              <p>Changer de Parcours</p>
               </div>
               <div class="footer-user-change">
                 <%= link_to journey_poi_path(@next_journey_for_poi, @poi) do %>
@@ -84,9 +84,15 @@
 
             <div class="media">
             <%= cl_image_tag @journey_poi.photo, class: "media-fix-width" %>
+            <% unless @journey_poi.text.nil? %>
             <div class="media-fix-width poesie"><%= simple_format @journey_poi.text %></div>
-            <div class="media-fix-width"><%= @journey_poi.video %></div>
-            <div class="media-fix-width"><%= @journey_poi.sound %></div>
+            <% end %>
+            <% unless @journey_poi.video.nil? %>
+            <div class="media-fix-width"><iframe width="560" height="315" src="<%= @journey_poi.video %>" frameborder="0"></iframe></div>
+            <% end %>
+            <% unless @journey_poi.sound.nil? %>
+            <div class="media-fix-width"><iframe width=“100%” height=“450" scrolling=“no” frameborder=“no” src="<%= @journey_poi.sound %>" ></iframe></div>
+            <% end %>
             </div>
           </div>
          </div>
@@ -305,6 +311,7 @@ var styleOut =
   }
 ];
 
+<% color_array = []%>
 // La Cordee Nantes Lat Lng
 var centerMap = new google.maps.LatLng(<%= @poi.latitude %>, <%= @poi.longitude %>);
 var myOptions = {
@@ -326,7 +333,6 @@ var map = new google.maps.Map(document.getElementById('map'), myOptions);
 // http://www.freeiconspng.com/uploads/illuminati-icon-png-29.png
 // mapx50.png
 // -----------------------------------------------------------
-var ico = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
 var titre = "La Cordee";
 var blue = '#0000FF';
 var green = '#00FF00';
@@ -336,13 +342,40 @@ var purple = '#FF1AFF';
 var orange = '#ff6600';
 var all_markers = {};
 var counter = 0;
+ <% color = ['#ff8b00', '#CD3131', '#d59bf6', '#ffe98a'] %>
+<%
+  if @journey.id == 1
+    actual_color = '#ff8b00'
+  elsif @journey.id == 2
+    actual_color = '#CD3131'
+  elsif @journey.id == 3
+    actual_color = '#D59bf6'
+  elsif @journey.id == 4
+    actual_color = '#ffe98a'
+  end
+  %>
+  var ico = pinSymbol('<%= actual_color %>');
+
+function pinSymbol(color) {
+  return {
+        path: 'M 9.732 -0.001 c -5.375 0 -9.729 4.356 -9.732 9.73 h 0.004 c 0.025 2.399 1.686 6.169 3.576 9.84 l 4.166 7.42 c 0.852 1.41 1.418 2.301 1.42 2.305 l 0.564 0.885 l 0.564 -0.885 c 0.002 -0.004 0.57 -0.895 1.424 -2.305 l 4.164 -7.418 c 1.889 -3.67 3.547 -7.44 3.578 -9.842 c 0 -5.374 -4.353 -9.73 -9.728 -9.73 z M 9.73 14.037 c -2.596 0 -4.697 -2.104 -4.697 -4.697 s 2.101 -4.697 4.697 -4.697 c 2.594 0 4.697 2.104 4.697 4.697 s -2.103 4.697 -4.697 4.697 z',
+
+        fillColor: color,
+        fillOpacity: 1,
+        scaledSize: new google.maps.Size(25, 25),
+        anchor: new google.maps.Point(9, 30),
+        strokeWeight: 0,
+        scale: 1,
+
+  }
+};
 
 
 // -----------------------------------------------------------
 function marquePoi(lat,lng,ico,titre, visibility) {
   var maLatLng = new google.maps.LatLng(lat, lng);
   if (lat == <%= @poi.latitude %>) {
-    ico = "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
+    ico = pinSymbol('#e6e7e8');
   };
   var marqueur = new google.maps.Marker({
   position: maLatLng,
@@ -408,9 +441,8 @@ function getCoordinatesonClick() {
 // < end %>
 
 
-  <% color = ['#E59500', '#F44336', '#E5DADA', '#52DEE5'] %>
 
-  createParcours(<%= @coordinates_hash[0] %>, '<%= color[2] %>');
+  createParcours(<%= @coordinates_hash[0] %>, '<%= actual_color %>');
   // marquePoi(<%= @poi.latitude %>, <%= @poi.longitude %>, 'http://maps.google.com/mapfiles/ms/icons/red-dot.png' ,'current marker', true);
 
 </script>
