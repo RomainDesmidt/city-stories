@@ -296,7 +296,34 @@ var purple = '#FF1AFF';
 var orange = '#ff8b00';
 var all_markers = {};
 var counter = 0;
+// var icon= {
+// url: icoGreen
+// scaledSize: new google.maps.Size(25, 25),
+// strokeColor: '#ff0000',
+// optimized: false
 
+// };
+
+function pinSymbol(color) {
+  return {
+        path: 'M 9.732 -0.001 c -5.375 0 -9.729 4.356 -9.732 9.73 h 0.004 c 0.025 2.399 1.686 6.169 3.576 9.84 l 4.166 7.42 c 0.852 1.41 1.418 2.301 1.42 2.305 l 0.564 0.885 l 0.564 -0.885 c 0.002 -0.004 0.57 -0.895 1.424 -2.305 l 4.164 -7.418 c 1.889 -3.67 3.547 -7.44 3.578 -9.842 c 0 -5.374 -4.353 -9.73 -9.728 -9.73 z M 9.73 14.037 c -2.596 0 -4.697 -2.104 -4.697 -4.697 s 2.101 -4.697 4.697 -4.697 c 2.594 0 4.697 2.104 4.697 4.697 s -2.103 4.697 -4.697 4.697 z',
+
+        fillColor: color,
+        fillOpacity: 1,
+        scaledSize: new google.maps.Size(25, 25),
+        anchor: new google.maps.Point(9, 30),
+        strokeWeight: 0,
+        scale: 1,
+
+  }
+};
+
+
+//['#E59500', '#F44336', '#E5DADA', '#52DEE5']
+
+var icoGreen = pinSymbol('#E6E7E8');
+
+// var marker =;
 
 // -----------------------------------------------------------
 function marquePoi(lat,lng,ico,titre, visibility) {
@@ -325,7 +352,7 @@ function createParcours(hashDanslArray, color) {
       var lng = hashDanslArray[i][1];
       var total = lat+" "+lng
       addToCoordinatesObjectArray(coordinatesArray, lat, lng);
-      marquePoi(lat,lng, ico, total, true)
+      marquePoi(lat,lng, icoGreen, total, true)
     }
   var parcoursPath = new google.maps.Polyline({
     path: coordinatesArray,
@@ -355,7 +382,7 @@ function getCoordinatesonClick() {
 };
 
 
-<% color = ['#E59500', '#F44336', '#E5DADA', '#52DEE5'] %>
+
 <% @coordinates_hash.each_with_index do |coordinate,i| %>
 createParcours(<%= @coordinates_hash[i] %>, '<%= color[i] %>');
 <% end %>
