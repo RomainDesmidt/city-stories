@@ -1,4 +1,4 @@
 meta_title: "Cities Stories - Visitez une ville à travers des histoires singulières "
 meta_description: "Racontez vous à travers la création d'un parcours dans une ville sous forme de textes vidéos, images, sons. Vivez votre ville où un territoire d'une manière différente et à travers les yeux de quelqu'un d'autre. "
-meta_image: "/assets/images/background-sessions.png" # should exist in `app/assets/images/`
+meta_image: "banner-meta.png" # should exist in `app/assets/images/`
 twitter_account: "@NantesStories" # required for Twitter Cards
