@@ -23,18 +23,25 @@
  }
 
 .map-index-next {
-   height: 75vh;
+   height: 76vh;
 }
 
 .container-height-20vh {
-  height: 25vh;
+  height: 24vh;
 }
 
-// .a-to-right{
-//     position: absolute;
-//       right: 10px;
-//      bottom: 10px;
-// }
+.a-to-right{
+    text-decoration: none;
+    color: white;
+    opacity: 0.8;
+}
+
+.a-to-right:hover {
+  text-decoration: none;
+  color: white;
+  opacity: 0.6;
+
+}
 
 .a-to-pad {
      // position: absolute;
@@ -48,8 +55,8 @@
 
 .tab {
     background-color: $brand-color;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     padding-right: 20px;
     padding-left: 20px;
     margin-bottom: 0px;
@@ -57,6 +64,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 8vh;
 .a-100vh {
   height: 100vh;
   }
@@ -66,13 +74,11 @@ div[id*="itab-"] {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  flex: 1 1 auto;
-  position: relative;
 }
 
 
 .itab-element {
-  flex: 1 1 auto;
+  // flex: 1 1 auto;
   position: relative;
 }
 
@@ -111,7 +117,7 @@ div.tabs-menu-index > div {
   padding-right: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
-  flex: 1 1 auto;
+  flex: 0 0 25%;
   display: flex;
   justify-content: center;
   background-color: white;
@@ -154,11 +160,11 @@ ul {
 }
 
 h4[id*="poi-title"] {
-  background-color: $brand-color;
+  // background-color: $brand-color;
   margin-top: 0px;
   margin-bottom: 0px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 
@@ -186,14 +192,20 @@ a[title="Report errors in the road map or imagery to Google"] {
 }
 
 .journeys-footer-index-i {
-   color: white;
-   text-align: center;
+  color: white;
+  text-align: center;
 
-   width: 100%;
+  width: 100%;
+  // background-color: $brand-color;
 
 }
 
 .journeys-footer-title-index {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $brand-color;
+  height: 7vh;
   margin: 0;
   padding: 0 0 0 0px;
   h3 {
@@ -206,3 +218,11 @@ a[title="Report errors in the road map or imagery to Google"] {
   }
 }
 
+.font-size-small {
+  font-size: 80%;
+  opacity: 0.8;
+}
+
+#tabs-container {
+  height: 8vh;
+}
