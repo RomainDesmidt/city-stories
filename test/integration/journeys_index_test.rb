@@ -6,5 +6,4 @@ class JourneysIndexTest < ActionDispatch::IntegrationTest
     #save_and_open_screenshot
     assert_equal 200, page.status_code
  end
-
 end
