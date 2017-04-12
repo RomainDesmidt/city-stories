@@ -63,7 +63,7 @@ journey_1 = Journey.create!(
   user: thomas,
   journey_pois: [
     JourneyPOI.new(
-      name: "Île de versailles",
+      name: "Île de Versailles",
       description: "Après une soirée qui se finit tard dans la nuit et avec quelques amis, on aime se retrouver sur le ponton au bout de l’île de Versailles finir les bières. Idéalement nous attendons l’ouverture des boulangeries pour prendre le petit déjeuner isolé de la ville.",
       poi: ile_de_versaille,
       photo: File.new(Rails.root.join("db/fixtures/images/29223108.jpg"))

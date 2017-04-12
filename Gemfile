@@ -19,9 +19,18 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 
-group :development, :test do
+
+group :development do
   gem 'binding_of_caller'
   gem 'better_errors'
+end
+
+group :development, :test do
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'launchy'
+  gem 'minitest-reporters'
+
 
   gem 'pry-byebug'
   gem 'pry-rails'
