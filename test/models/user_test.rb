@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UserTest < ActiveSupport::TestCase
+class UnitTestUserTest < ActiveSupport::TestCase
    i_suck_and_my_tests_are_order_dependent!
   def setup
     @user = users(:valid)

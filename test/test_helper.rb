@@ -7,6 +7,7 @@ Minitest::Reporters.use! [Minitest::Reporters::SpecReporter.new]
 
 class ActiveSupport::TestCase
   fixtures :all
+  i_suck_and_my_tests_are_order_dependent!
 end
 
 require 'capybara/rails'

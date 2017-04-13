@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class HomeTest < ActionDispatch::IntegrationTest
+class IntegrationHomeTest < ActionDispatch::IntegrationTest
  test "home loads correctly" do
     visit "/"
     #save_and_open_screenshot
