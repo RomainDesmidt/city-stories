@@ -30,6 +30,7 @@ group :development, :test do
   gem 'poltergeist'
   gem 'launchy'
   gem 'minitest-reporters'
+  gem 'selenium-webdriver'
 
 
   gem 'pry-byebug'

@@ -3,4 +3,5 @@ class JourneyPOI < ApplicationRecord
 
   belongs_to :journey
   belongs_to :poi
+  validates :name, presence: true
 end

@@ -7,4 +7,5 @@ class User < ApplicationRecord
   mount_uploader :avatar, PhotoUploader
 
   has_many :journeys
+  validates :pseudo, presence: true
 end

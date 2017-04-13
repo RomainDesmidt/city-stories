@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class JourneyPOITest < ActiveSupport::TestCase
+class UnitTestJourneyPOITest < ActiveSupport::TestCase
 
  i_suck_and_my_tests_are_order_dependent!
 

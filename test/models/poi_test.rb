@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class POITest < ActiveSupport::TestCase
+class UnitTestPOITest < ActiveSupport::TestCase
    i_suck_and_my_tests_are_order_dependent!
   def setup
     @poi= pois(:poione)

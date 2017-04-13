@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class JourneyTest < ActiveSupport::TestCase
+class UnitTestJourneyTest < ActiveSupport::TestCase
    i_suck_and_my_tests_are_order_dependent!
   def setup
     @journey = journeys(:one)
