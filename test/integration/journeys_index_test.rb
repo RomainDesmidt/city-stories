@@ -6,6 +6,8 @@ class IntegrationJourneysIndexTest < ActionDispatch::IntegrationTest
     @poi = pois(:poione)
   end
 
+# could test on presence of error message that could be written in dom by js
+
   test "journeys index loads correctly and put a marker on the map" do
     Capybara.current_driver = :selenium
     visit "/journeys"
