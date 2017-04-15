@@ -308,6 +308,7 @@ var purple = '#FF1AFF';
 var orange = '#ff8b00';
 var all_markers = {};
 var counter = 0;
+var errorRaised = "No errors for now";
 <% color = ['#ff8b00', '#CD3131', '#d59bf6', '#ffe98a'] %>
 
 // var icon= {
@@ -522,7 +523,7 @@ all_markers[i].addListener('click', function() {
     },
 
     error: function(jqXHR) {
-
+      errorRaised = "an error was raised";
     }
   });
 

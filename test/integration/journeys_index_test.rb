@@ -31,4 +31,12 @@ class IntegrationJourneysIndexTest < ActionDispatch::IntegrationTest
     visit "/journeys"
     assert (page.evaluate_script("Object.keys(all_markers).length") == @arr_journey.length), " all_markers.length = #{page.evaluate_script('Object.keys(all_markers).length')} should be equal to journey_pois.length got #{@arr_journey.length}"
   end
+
+
+  test "var errorRaised should be default" do
+    Capybara.current_driver = :selenium
+    visit "/journeys"
+    page.execute_script("all_markers[0].click()")
+    assert (page.evaluate_script("errorRaised") == "No errors for now"), "an error has occured"
+  end
 end
