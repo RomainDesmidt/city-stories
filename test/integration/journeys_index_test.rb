@@ -36,7 +36,7 @@ class IntegrationJourneysIndexTest < ActionDispatch::IntegrationTest
   test "var errorRaised should be default" do
     Capybara.current_driver = :selenium
     visit "/journeys"
-    page.execute_script("all_markers[0].click()")
+    page.execute_script("all_markers[0].addEvent()")
     assert (page.evaluate_script("errorRaised") == "No errors for now"), "an error has occured"
   end
 end
